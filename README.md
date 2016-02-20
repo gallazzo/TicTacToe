@@ -14,18 +14,46 @@ TicTacToe is a simple tictactoe game created with Raylib library. I've created t
 
 ## Compiling
 
-Only linux
+TicTacToe uses only Raylib library; this library supports multiple platform (Window, GNU/Linux, Mac and others), but I've created a Makefile that works only on GNU/Linux (because i'm learning to create it); thus TicTacToe works with all platform, but for now it works only on GNU/Linux.
+
+### Install Raylib library
+Now I learn how to install Raylib library. If you know, jump this paragraph.
+The Raylib library uses other libraries, so first you have to install them. If you are on Ubuntu/Debian, you can install the majority of them using this command:
+
+    sudo apt install mesa-common-dev-dev libx11 libxrandr libXi-dev-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
+    
+There is the last dependency (GLFW3):
+    
+    git clone https://github.com/glfw/glfw.git glfw
+    cd glfw
+    cmake .
+    sudo make install
+    
+After you have to make the Raylib library:
+
+    git clone https://github.com/raysan5/raylib.git raylib
+    cd raylib/src/
+    make
+    sudo cp libraylib.a usr/local/lib/libraylib.a
+    sudo cp raylib.h usr/local/include/raylib/raylib.h
+
+Now you can use Raylib on your projects!
+
+### Compiling TicTacToe
+
+You can simply compile the software with `make`. It produces an executables, you can move it everywhere **BUT** he goes along with the `resources` folder!
+
+You can also use `make clean` to clean the folder.
 
 ## Play
 
 [![DefaultScreen](screenshots/default.png)]
 [![WinningScreen](screenshots/win.png)]
 
-**How to play**
-* Use your mouse to place the mark on the grid;
-* When the game finished, click on "New Game";
-* If you want to read help and credits information, click on the question mark button;
-* If you want to quit, click on quit button.
+### How to play
+Use your **mouse** to place marks on the grid. After a game, you can restart clicking on the "New Game" button. There is also the quit and help button.
+
+You can start the software in a CLI with the `--help` or `--version` parameter.
 
 ## Know bugs
 
