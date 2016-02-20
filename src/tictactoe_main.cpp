@@ -24,6 +24,7 @@
 // SOFTWARE.
 
 #include <iostream>
+#include <string>
 
 #include <raylib/raylib.h>
 
@@ -31,25 +32,37 @@
 
 TicTacToeCore TicTacToe;
 
+string help_command = "--help";
+string version_command = "--version";
+
+string parameter;
+
 int main(int argc, char** argv)
 {
-    if (argc == 2) {
-        if (argv[1] == "--version") {
-            cout << "TicTacToe XX\nCopyright (C) 2016 Emanuele Petriglia "
-                 << "(LelixSuper)\n License MIT: "
-                 << "<http://opensource.org/licenses/MIT>\n";
-        } else {
-            cout << "Usage: tictactoe [--version] [--help]\n"
-                 << "Report bugs, ideas and other to:"
-                 << "<emanuele98@openmailbox.org";
-        }
-    } else if (argc = 1) {
+    // No parameters.
+    if (argc == 1) {
+        TicTacToe.Initializes();
         TicTacToe.Game();
         TicTacToe.DeInitializes();
+    } else if (argc == 2) {
+        parameter = argv[1];
+        
+        // Output with "--help" parameter.
+        if (parameter == help_command) {
+            cout << "Usage:\n\ttictactoe [--version] [--help]\n"
+                 << "Report bugs, ideas and other to: "
+                 << "<emanuele98@openmailbox.org>.\n";
+        // Output with "--version" parameter.
+        } else if (parameter == version_command) {
+            cout << "TicTacToe XX\nCopyright (C) 2016 Emanuele Petriglia "
+                 << "(LelixSuper)\nLicense MIT: "
+                 << "<http://opensource.org/licenses/MIT>.\n";
+        }
+    // General error (the output is like with "--help").
     } else {
-        cout << "Usage: tictactoe [--version] [--help]\n"
-             << "Report bugs, ideas and other to:"
-             << "<emanuele98@openmailbox.org";
+            cerr << "Usage:\n\ttictactoe [--version] [--help]\n"
+                 << "Report bugs, ideas and other to: "
+                 << "<emanuele98@openmailbox.org>.\n";
     }
     
     return 0;

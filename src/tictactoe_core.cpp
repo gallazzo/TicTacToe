@@ -1,6 +1,6 @@
 #include "tictactoe_core.h"
 
-TicTacToeCore::TicTacToeCore()
+void TicTacToeCore::Initializes()
 {
     InitWindow(screenWidth, screenHeight, "TicTacToe");
     SetTargetFPS(60);

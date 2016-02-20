@@ -44,8 +44,8 @@ class TicTacToeCore {
     // Metodi
     // -------------------------------------------------------------------------
     
-    // Inizializza i membri 'MainWindow_' e 'HelpWindow_'.
-    TicTacToeCore();
+    // It creates the window and set up Raylib and other classes.
+    void Initializes();
     
     // Loop principale dove aviene lo svolgimento del gioco.
     void Game();
