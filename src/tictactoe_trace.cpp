@@ -1,17 +1,40 @@
+// This file is part of TicTacToe, a software under the MIT License.
+//
+// Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
+// <emanuele98@openmailbox.org>
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy 
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights 
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+// copies of the Software, and to permit persons to whom the Software is 
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 #include "tictactoe_trace.h"
 
 const Vector2 TicTacToeTrace::trace_position[9] = {
-    // Traccie orrizzontali
+    // Horizontal traces.
     {400, 84},
     {400, 234},
     {400, 377},
     
-    // Traccie verticali
+    // Vertical traces.
     {437, 52},
     {584, 52},
     {730, 52},
     
-    // Diagonali
+    // Diangonal traces.
     {428, 76},
     {436, 81},
 };
@@ -28,8 +51,8 @@ void TicTacToeTrace::SetCore(TicTacToeGame *Game_input)
 {
     Game_ = Game_input;
     
+    // Reset of "trace_" member.
     trace_ = 8;
-}
 
 void TicTacToeTrace::Initialize()
 {
@@ -48,17 +71,19 @@ void TicTacToeTrace::Update()
     if (Game_->get_won() != 0 && Game_->get_won() != 3) {
         trace_ = Game_->WhereHeWon();
         
-        // Assegnazione del colore.
+        // Assign the color.
         if (Game_->get_won() == 1)
             trace_color_ = XMARK;
         else
             trace_color_ = OMARK;
         
-        // Assegnazione del colore alle traccie.
+        // Assign the color to traces.
         for (counter_ = 0; counter_ <= 3; counter_++)
             Trace_[counter_]->set_color(trace_color_);
         
-        // Disegno delle traccie.
+        // Set up of the trace on the screen (but it's not drawn).
+        // "WhereHeWon", a method of "TicTacToeGame", returns a integer value
+        // that represents the trace that will have to be drawn.
         if (trace_ >= 0 && trace_ < 3) {
             Trace_[0]->set_position(trace_position[trace_].x, 
                                     trace_position[trace_].y);
@@ -87,4 +112,3 @@ void TicTacToeTrace::Draw()
         Trace_[3]->Show();
     }
 }
-

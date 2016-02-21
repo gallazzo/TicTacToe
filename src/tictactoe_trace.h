@@ -1,6 +1,4 @@
-// "TicTacToe" using Raylib library
-// 
-// This file is part of TicTacToe, a software under the MIT License
+// This file is part of TicTacToe, a software under the MIT License.
 //
 // Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
 // <emanuele98@openmailbox.org>
@@ -31,63 +29,72 @@
 #include "base/graphic_element.h"
 #include "tictactoe_game.h"
 
-// Colori dei due segni.
+// Colors of two sign.
 #define XMARK (Color){ 255, 15, 1, 255 }
 #define OMARK (Color){ 2, 93, 226, 255 }
 
+// This class manages the graphical traces that you see when a player wins the
+// game. It's used by "TicTacToeMainGrid".
+// It needs an istance of "TicTacToeGame" to retrieve data for draw the traces;
+// you can assign an istance with "SetCore" method.
+// The class also need the initialization of graphical objects with "Initialize"
+// and after the deinitialization with "DeInitialize".
 class TicTacToeTrace {
  private:
 
-    // È un array che contiene le posizioni X e Y delle traccie da disegnare.
+    // Constant
+    // -------------------------------------------------------------------------
+    
+    // It's an array contains the position (x and y with the smaller number) of
+    // the traces.
     static const Vector2 trace_position[9];
     
  public:
     
-    // Metodi
+    // Methods
     // -------------------------------------------------------------------------
     
-    // Costruttore.
     TicTacToeTrace();
     
-    // Imposta l'istanza da dove prendere i dati.
-    // Input: una istanza di TicTacToeGame.
+    // It sets up the istance from where get the data.
+    // Parameter: an istance of "TicTacToeGame".
     void SetCore(TicTacToeGame *Game_input);
     
-    // Inizializza gli elementi grafici.
+    // It initializes the graphic elements.
     void Initialize();
     
-    // Deinizializza gli elementi grafici.
+    // It clears the graphic elements.
     void DeInitialize();
     
-    // Aggiorna lo stato e prepara i membri per il metodo 'Draw'.
+    // It updates the state of the istance and it prepares the drawing.
     void Update();
     
-    // Disegna le traccie in base ai dati di TicTacToeGame.
+    // It draws the traces according to the state of "TicTacToeGame" istance.
     void Draw();
     
  private:
 
-    // Attributi
+    // Attributes
     // -------------------------------------------------------------------------
     
-    // Elementi grafici delle traccie:
-    //     0 - indica la traccia orrizontale;
-    //     1 - indica la traccia verticale;
-    //     2 - indica la traccia della prima diagonale;
-    //     3 - indica la traccia della seconda diagonale.
+    // It's an array of graphic elements that contains all traces:
+    //     0 - it indicates the horrizontal trace;
+    //     1 - it indicates the vertical trace;
+    //     2 - it indicates the first diagonal trace;
+    //     3 - it indicates the second diagonal trace.
     GraphicElement *Trace_[4];
     
-    // Indica l'istanza da dove prendere i dati; in questo caso il valore
-    // restituito da TicTacToeGame::WhereHeWon().
+    // It's the pointer that points to an istance of "TicTacToeGame".
+    // This class uses only "WhereHeWon" method of "TicTacToeGame".
     TicTacToeGame *Game_;
     
-    // Attributo dove si salva il valore restitutito da WhereHeWon().
+    // It contains the value of "WhereHeWon".
     unsigned short int trace_;
     
-    // Contatore usato nei cicli.
+    // It's a counter used in the loops.
     unsigned short int counter_;
     
-    // Indica il colore della traccia.
+    // It indicates the color of the trace.
     Color trace_color_;
 };
 
