@@ -35,32 +35,32 @@
 
 class TicTacToeMainWindow {
  public:
-    // Metodi
+    // Methods
     // -------------------------------------------------------------------------
     
-    // Costruttore che crea gli elementi ma non li inizializza con la raylib.
+    // Constructor that creates elements but they are not initialized by Raylib.
     TicTacToeMainWindow();
     
-    // Inizializza gli elementi.
+    // Initialize the elements.
     void Initialize();
     
-    // Libera dalla memoria gli elementi.
+    // Clears elements memory.
     void DeInitialize();
     
-    // Input: un puntatore ad una istanza di 'TicTacToeGame'.
+    // Input: a pointer of 'TicTacToeGame' istance.
     void SetGame(TicTacToeGame *Game_input);
     
-    // Disegna la finestra, includendo gli elementi statici (pulsanti, logo,
-    // sfondo) e quelli dinamici (griglia con il gioco, testo).
-    // Nota: fa parte della fase di disegno.
+    // Draws the window, including static (buttons, logo, wallpaper) and
+    // and dynamic elements (grid with the game, text).
+    // NB: part of drawing phase.
     void Draw();
     
-    // Aggiorna le istanze in base al parametro.
-    // Input: la posizione del mouse.
-    // Nota: fa parte della fase di aggiornamento.
+    // Updates istances basing on the parameter.
+    // Input: mouse position.
+    // NB: part of updating phase.
     void Update(Vector2 mouse_position_input);
     
-    // Restituisce vero se il pulsante è stato premuto.
+    // Return true if the button has been pressed.
     bool quit_button_is_pressed() { return QuitButton_->is_pressed(); }
     
     bool help_button_is_pressed() { return HelpButton_->is_pressed(); }
@@ -71,27 +71,26 @@ class TicTacToeMainWindow {
 
  public:
     
-    // Sceglie e disegna la texture in base allo stato del gioco.
+    // Chooses and draws the texture basing on game status.
     void DrawInfo();
     
-    // Attributi
+    // Attributes
     // -------------------------------------------------------------------------
     
-    // Puntatore che punta ad una istanza della classe, da dove prende e mette i
-    // valori.
+    // Pointer that points a class istance, where gather and load values.
     TicTacToeGame *Game_;
     
-    // Istanza della griglia.
+    // Grid istance.
     TicTacToeGrid Grid_;
     
-    // Elementi grafici statici.
+    // Static graphic elements.
     // -------------------------
     GraphicElement *Logo_;
 
     GraphicElement *Background_;
     // -------------------------
     
-    // Puntatori ai pulsanti del gioco.
+    // Pointers to game buttons.
     // --------------------------------
     Button *NewGameButton_;
     
@@ -102,7 +101,7 @@ class TicTacToeMainWindow {
     Button *SettingsButton_;
     // --------------------------------
     
-    // Testi dinamici (sotto forma di texture).
+    // Dynamic texts (in texture)
     // ----------------------------------------
     GraphicElement *DrawText_;
     

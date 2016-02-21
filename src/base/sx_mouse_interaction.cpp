@@ -12,9 +12,9 @@ SxMouseInteraction::SxMouseInteraction(int x_input, int y_input,
 
 void SxMouseInteraction::Update(Vector2 mouse_position_input)
 {
-    // Verifica se il tasto sinitro del mouse è stato premuto.
+    // Checks if the left mouse button has been pressed.
     if(IsMouseButtonDown(MOUSE_LEFT_BUTTON) == true) {
-        // Verifica la collisione con l'area.
+        // Checks the collision with the area.
         if(CheckCollisionPointRec(mouse_position_input, Area_)) {
             pressed_ = true;
         } else {

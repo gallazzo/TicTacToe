@@ -35,24 +35,24 @@
 
 class Button : public GraphicElement, public SxMouseInteraction {
  public:
-    // Metodi
+    // Methods
     // -------------------------------------------------------------------------
     
-    // Costruttore.
+    // Constructor.
     // Input:
-    //     x_input = posizione x dell'angolo in alto a sinistra;
-    //     y_input = posizione y dell'angolo in alto a sinistra;
-    //     path_input = posizione dell'immagine (texture);
-    //     height_input = altezza del pulsante;
-    //     width_input = larghezza del pulsante.
-    //     Color_input = il colore della grafica (mettere WHITE) per default.
+    //     x_input = position x of the angle on top left button;
+    //     y_input = position y of the angle on top left button;
+    //     path_input = image position (texture);
+    //     height_input = button height;
+    //     width_input = button width.
+    //     Color_input = graphic color (set WHITE) by default.
     Button(int x_input, int y_input, int width_input,
            int height_input, std::string path_input, Color Color_input)
            : GraphicElement(x_input, y_input, path_input, Color_input),
              SxMouseInteraction(x_input, y_input, height_input, width_input) {}
     
-    // TODO(LelixSuper): aggiungere delle animazioni dopo aver rilasciato una
-    // versione base del codice.
+    // TODO(LelixSuper): add animations after a release of a base version 
+    // of source code.
 };
 
 #endif // SRC_BASE_BUTTON_H

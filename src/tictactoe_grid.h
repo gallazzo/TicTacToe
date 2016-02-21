@@ -36,80 +36,78 @@
 
 class TicTacToeGrid {
  public:
-    // Metodi
+    // Methods
     // -------------------------------------------------------------------------
     
-    // Costruttore.
-    // Punta i puntatori creando le istanze.
+    // Constructors.
+    // Point the pointers that creates istances.
     TicTacToeGrid();
     
-    // Imposta l'istanza di 'TicTacToeCore' da dove prendere ed immettere i
-    // dati.
-    // Input: u'istanza di 'TicTacToeCore'.
+    // Set 'TicTacToeCore' istance to gather and load data
+    // Input: 'TicTacToeCore' istance.
     void SetGame(TicTacToeGame *Game_input);
     
-    // Inizializza le texture.
+    // Initialize textures.
     void Initialize();
     
-    // Libera la memoria dalle texture.
+    // Clears texture memory.
     void DeInitialize();
     
-    // Disegna la griglia ed il suo contenuto.
-    // Fa parte della fase di disegno.
+    // Draws the grid and its content.
+    // Part of drawing phase.
     void Draw();
     
-    // Aggiorna la griglia in base alla posizioe del mouse.
-    // Input: la posizione del mouse.
-    // Nota: fase di input.
+    // Updates the grid basing on mouse position.
+    // Input: mouse position.
+    // NB: input phase.
     void Update(Vector2 mouse_position_input);
     
  private:
     
-    // Attributi
+    // Attributes
     // -------------------------------------------------------------------------
     
-    // Puntatore che punta ad una istanza di TicTacToeCore, da dove prende ed
-    // immette i dati.
+    // Pointer that points a TicTacToeCore istance, where to gather and load 
+	// data
     TicTacToeGame *Game_;
     
-    // Puntatore che punta ad una istanza di un elmento grafico, in questo caso
-    // la griglia.
+    // Pointer that points a graphic element istance, in this case the grid.
     GraphicElement *Grid_;
     
-    // Puntatori che punta ad ogni aree di interazione (rettangoli)
-    // nella griglia. La numerazione corrisponde a quella logica della griglia:
+    // Pointers that points every interation areas (rectangles) in the grid.
+    // The numbering matches with the grid logic one:
     //     0 | 1 | 2
     //     ---------
     //     3 | 4 | 5
     //     ---------
     //     6 | 7 | 8
-    // Usata nell'input.
+    // Used for input.
     SxMouseInteraction *InteractionBox_[9];
     
-    // Indicano le coordinate logiche della griglia, sono numerate in accordo
-    // a InteractionBox_ e Mark_.
-    // Usata sia per il disegno che per l'input.
+    // Shows grid logic coordinates, they are numbered basing on
+    // InteractionBox_ and Mark_.
+    // Used for drawing and input.
     Coordinate CellsPosition_[9];
     
-    // Indica l'angolo (x, y) di ogni cella.
-    // Usata per il disegno.
+    // Shows angles (x, y) of every box.
+    // Used for drawing.
     Vector2 texture_angle_[9];
     
-    // Simbolo 'X' con le sue varianti.
+    // Symbol 'X' with its variants.
     Texture2D x_mark_[4];
     
-    // Simbolo 'O' con le sue varianti.
+    // Symbol 'O' with its variants.
     Texture2D o_mark_[4];
     
-    // Indica il numero che identifica la variante dei simboli
-    // che ci sono nelle celle della griglia.
+    // Shows the number that identify symbol variants that there are
+    // in grid boxes.
     unsigned short int grid_mark_[9];
     
-    // Puntatore che punta ad una istanza di TicTacToeTrace, la classe che
-    // gestisce la traccie grafiche della vittoria.
+    // Pointer that points a TicTacToeTrace istance, the class that manages
+    // the graphic traces of the victory.
     TicTacToeTrace *Trace_;
     
-    // Usata nei cicli.
+    // Used for cicles.
     unsigned short int counter_;
 };
 

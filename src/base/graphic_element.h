@@ -34,61 +34,61 @@ using namespace std;
 
 class GraphicElement {
  public:
-    // Metodi
+    // Methods
     // -------------------------------------------------------------------------
     
-    // Costruttore.
+    // Constructor.
     // Input:
-    //     x_input = posizione x dell'elemento;
-    //     y_input = posizione y dell'elemento;
-    //     path_input = percorso dell'immagine.
-    //     Color_input = il colore della grafica (mettere WHITE) per default.
-    // Nota: la posizione si riferisce all'angolo in alto a sinistra!
+    //     x_input = position x of the element;
+    //     y_input = position y of the element;
+    //     path_input = image path.
+    //     Color_input = graphic color (set WHITE) by default.
+    // NB: the position is refered to top left angle position!
     GraphicElement(int x_input, int y_input, string path_input,
                    Color Color_input);
     
-    // Costruttore alternativo. Viene usato nel caso l'istanza vari di
-    // coordinate e colore. Input:
-    //     path_input = il percorso dell'immagine.
+    // Alternative constructor. It is used when the istance changes
+    // coordinates and color. Input:
+    //     path_input = image path.
     GraphicElement(string path_input);
     
-    // Carica l'immagine dell'elemento e lo trasforma in texture.
-    // Non restituisce nulla.
-    // Nota: usare il metodo solo dopo aver creato la finestra (InitWindow)!
+    // Loads element image and turns it into texture.
+    // It returns void.
+    // NB: use the method only after creating the window (InitWindow)!
     void Initializes();
     
-    // Libera lo spazio occupato dalla texture nella memoria.
-    // Non restituisce nulla.
+    // Clear space used by texture in memory.
+    // It returns void.
     void DeInitializes();
     
-    // Disegna l'elemento in base agli argomenti passati nel costruttore.
+    // Draws the element basing on arguments read by constructor.
     void Show();
     
-    // Imposta la posizione dell'elemento grafico.
-    // Input: le coordinate x e y dell'elemento.
+    // Set graphic element position.
+    // Input: coordinates x and y of the element.
     void set_position(int x_input, int y_input) { x_ = x_input; y_ = y_input; }
     
-    // Imposta il colore dell'elemento grafico.
-    // Input: il colore dell'elemento.
+    // Set graphic element color.
+    // Input: element color.
     void set_color(Color color_input) { Color_ = color_input; }
     
  private:
-    // Attributi
+    // Attributes
     // -------------------------------------------------------------------------
     
-    // Indica il percorso dell'immagine.
+    // Shows image path.
     string path_;
     
-    // Indica la posizione nelle ascisse dell'angolo in alto a sinistra.
+    // Shows position in abscissa of the top left angle.
     int x_;
     
-    // Indica la posizione nelle coordinate nell'angolo in alto a sinistra.
+    // Shows position in coordinates of the top left angle.
     int y_;
     
-    // La texture dell'elemento.
+    // Element texture.
     Texture2D Texture_;
     
-    // Il colore base dell'elemento.
+    // Element base color.
     Color Color_;
 };
 

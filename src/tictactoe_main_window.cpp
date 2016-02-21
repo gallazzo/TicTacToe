@@ -2,11 +2,11 @@
 
 TicTacToeMainWindow::TicTacToeMainWindow()
 {
-    // Creazione e puntamento degli elementi statici.
+    // Static elements creation and tracking.
     Logo_ = new GraphicElement(23, 0, "resources/main_window/logo.png", WHITE);
     Background_ = new GraphicElement(0, 0,
                                      "resources/background.png", WHITE);
-    // Creazione e puntamento dei pulsanti.
+    // Buttons creation and tracking.
     SettingsButton_ = new Button(293, 413, 80, 80,
                                  "resources/buttons/settings_button.png",
                                  WHITE);
@@ -17,7 +17,7 @@ TicTacToeMainWindow::TicTacToeMainWindow()
     QuitButton_ = new Button(14, 413, 80, 80,
                              "resources/buttons/quit_button.png", WHITE);
     
-    // Creazione e puntamento dei testi.
+    // Text creation and tracking.
     DrawText_ = new GraphicElement(14, 165, "resources/infobox/draw_text.png",
                                    WHITE);
     Player1Turn_ = new GraphicElement(14, 165,
@@ -33,7 +33,7 @@ TicTacToeMainWindow::TicTacToeMainWindow()
                                       "resources/infobox/player_2_wins.png",
                                       WHITE);
     
-    // NOTA: Grid_ è già stato creato.
+    // NB: Grid_ has already been created.
 }
 
 void TicTacToeMainWindow::Initialize()
@@ -78,7 +78,7 @@ void TicTacToeMainWindow::SetGame(TicTacToeGame *Game_input)
 
 void TicTacToeMainWindow::Draw()
 {
-    // Nota: gli elementi sono in sovrapposizione.
+    // NB: the elements are overlapped.
     Background_->Show();
     Logo_->Show();
     QuitButton_->Show();
@@ -86,7 +86,7 @@ void TicTacToeMainWindow::Draw()
     HelpButton_->Show();
     SettingsButton_->Show();
     
-    // Elementi dinamici.
+    // Dynamic elements.
     DrawInfo();
     Grid_.Draw();
 }

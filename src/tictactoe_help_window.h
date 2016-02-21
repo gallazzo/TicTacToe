@@ -33,44 +33,44 @@
 
 class TicTacToeHelpWindow {
  public:
-    // Metodi
+    // Methods
     // -------------------------------------------------------------------------
     
-    // Costruttore che crea gli elementi ma non li inizializza con la raylib.
+    // Constructor that creates elements but they aren't initialized by Raylib.
     TicTacToeHelpWindow();
     
-    // Inizializza gli elementi.
+    // Initialize elements.
     void Initialize();
     
-    // Libera dalla memoria gli elementi.
+    // Clears element memory.
     void DeInitialize();
     
-    // Disegna la finestra con gli elementi.
-    // Nota: fa parte della fase di disegno.
+    // Draws the window with the elements.
+    // NB: part of drawing phase.
     void Draw();
     
-    // Aggiorna le istanze in base al parametro.
-    // Input: la posizione del mouse.
-    // Nota: fa parte della fase di aggiornamento.
+    // Updates istances basing on the parameter.
+    // Input: mouse position.
+    // NB: part of updating phase.
     void Update(Vector2 mouse_position_input);
 
-    // Restituisce vero se il pulsante è stato premuto.
+    // Returns true if the button is pressed.
     bool close_button_is_pressed() { return BackButton_->is_pressed(); }
     
  private:
-    // Attributi
+    // Attributes
     // -------------------------------------------------------------------------
     
-    // Puntatore che punta ad una istanza di 'GraphicElement', rappresenta
-    // lo sfondo della finestra.
+    // Pointer that points 'GraphicElement' istance, shows backgroung window
+    // wallpaper.
     GraphicElement *Background_;
     
-    // Puntatore che punta ad una istanza di 'GraphicElement', rappresenta il
-    // testo da mostrare.
+    // Pointer that pints 'GraphicElement' istance, shows the text that must
+    // be displayed.
     GraphicElement *InfoText_;
     
-    // Puntatore che punta ad una istanza di 'Button', in questo caso il
-    // pulsante per chiudere la finestra.
+    // Pointer that points a 'Button' istance, in this case the button that 
+    // closes the window.
     Button *BackButton_;
 };
 
