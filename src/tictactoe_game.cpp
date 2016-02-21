@@ -33,9 +33,9 @@ TicTacToeGame::TicTacToeGame()
     
     win_ = 0;
     
-    player_ = true; // Inizia sempre il giocatore 1 (X).
+    player_ = true; // Player 1 always begins the game (X).
     
-    // Inizializza la griglia riempendola con zeri.
+    // Initialize the grid filling it with zeros.
     for (row_ = 0; row_ < 3; row_++)
         for (column_ = 0; column_ < 3; column_++)
             grid_[row_][column_] = 0;
@@ -43,21 +43,21 @@ TicTacToeGame::TicTacToeGame()
 
 bool TicTacToeGame::DoTurn(Coordinate Input)
 {
-    // Verifica se la cella selezionata è già occupata.
+    // Check if the box selected is already filled.
     if (grid_[Input.row][Input.column] != 0) return false;
     
     turn_++;
     
-    // Scambio giocatore
+    // Switch player
     if (player_ == true) {
-        player_ = false; // Tocca al giocatore 1 (X).
+        player_ = false; // Player 1 turn (X).
         sign_ = 3;
     } else {
-        player_ = true; // Tocca al giocatore 2 (Y).
+        player_ = true; // Player 2 turn (Y).
         sign_ = 10;
     }
     
-    // Assegnazione valore nella griglia
+    // Assign a value in the grid
     grid_[Input.row][Input.column] = sign_;
     
     win_ = WinnerTest();
@@ -72,16 +72,16 @@ unsigned short int TicTacToeGame::WhereHeWon()
         AnalyzesGrid();
         return trace_;
     } else {
-        return 8; // Errore generale.
+        return 8; // General error.
     }
 }
 
 unsigned short int TicTacToeGame::AnalyzesGrid()
 {
-    // Nota: l'attributo 'counter2_' è relativo per tracciare la combinazione di
-    // vittoria.
+    // NB: the attribute 'counter2_' tracks the combination of moves needed for 
+    // the victory.
     
-    // Controllo righe.
+    // Check rows.
     // -------------------------------------------------------------------------
     for (row_ = 0, counter2_ = 0; row_ < 3; row_++, counter2_++) {
         score_ = 0;
@@ -89,18 +89,18 @@ unsigned short int TicTacToeGame::AnalyzesGrid()
             score_ += grid_[row_][column_];
         }
         
-        // I valori 0-1-2 corrispondono alle righe della griglia.
+        // Values 0-1-2 matches the rows into the grid.
         trace_ = counter2_;
         
-        // La somma 9 indica che il giocatore 1 (X) ha vinto, mentre la somma 
-        // 30 indica che il giocatore 2 (Y) ha vinto.
+        // The score 9 means that Player 1 (X) won, and the score
+        // 30 means that Player 2 (Y) won instead.
         if (score_ == 9)
             return 1;
         else if (score_ == 30)
             return 2;
     }
     
-    // Controllo colonne.
+    // Check columns.
     // -------------------------------------------------------------------------
     for (column_ = 0, counter2_ = 3; column_ < 3; column_++, counter2_++) {
         score_ = 0;
@@ -108,7 +108,7 @@ unsigned short int TicTacToeGame::AnalyzesGrid()
             score_ += grid_[row_][column_];
         }
         
-        // I valori 3-4-5 corrispondono alle colonne (ecco perchè parte da 3).
+        // Values 3-4-5 means the columns (that's why values start from 3).
         trace_ = counter2_;
         
         if (score_ == 9)
@@ -117,23 +117,23 @@ unsigned short int TicTacToeGame::AnalyzesGrid()
             return 2;
     }
     
-    // Controllo diagonali.
+    // Check diagonals.
     // -------------------------------------------------------------------------
-    // Seconda diagonale.
+    // Second diagonal.
     score_ = 0;
     for (row_ = 0, column_ = 0, counter_ = 0; row_ < 3; row_++, column_++,
         counter_++) {
         score_ += grid_[row_][column_];
     }
 
-    trace_ = 7; // 6 corrisponde alla seconda diagonale.
+    trace_ = 7; // 6 matches the second diagonal.
 
     if (score_ == 9)
         return 1;
     else if (score_ == 30)
         return 2;
 
-    // Prima diagonale.
+    // First diagonal.
     score_ = 0;
     for (row_ = 0, column_ = 2, counter_ = 0; row_ < 3; row_++, column_--,
         counter_++) {
@@ -147,10 +147,10 @@ unsigned short int TicTacToeGame::AnalyzesGrid()
     else if (score_ == 30)
         return 2;
     
-    // Mancano dei turni.
+    // Missing turns.
     // -------------------------------------------------------------------------
     if (turn_ < MAX_TURNS)
         return 0;
     else
-        return 3; // Pareggio
+        return 3; // Draw
 }

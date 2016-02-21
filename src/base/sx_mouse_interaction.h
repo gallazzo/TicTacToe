@@ -30,37 +30,37 @@
 
 class SxMouseInteraction {
  public:
-    // Metodi
+    // Methods
     // -------------------------------------------------------------------------
     
-    // Costruttore.
+    // Constructor.
     // Input:
-    //     x_input = posizione x dell'angolo in alto a sinistra;
-    //     y_input = posizione y dell'angolo in alto a destra;
-    //     height_input = altezza dell'area;
-    //     width_input = larghezza dell'area.
+    //     x_input = position x of the top left angle;
+    //     y_input = position y of the top left angle;
+    //     height_input = area height;
+    //     width_input = area width.
     SxMouseInteraction(int x_input, int y_input, int height_input,
                        int width_input);
     
-    // Aggiorna l'attributo pressed, che indica se è stato premuto o meno.
-    // Input: le coordinate del mouse.
+    // Updates pressed attribute, that shows if it has been pressed or not.
+    // Input: mouse coordinates.
     void Update(Vector2 mouse_position_input);
     
-    // Ritorna l'attributo pressed. Se 'vero' l'area c'è stata l'interazione con
-    // le coordinate del mouse passate con 'Update()'.
+    // Returns pressed attribute. If 'true' in the area there was an interation
+    // with mouse coordinates managed by 'Update()'.
     bool is_pressed() { return pressed_; }
     
-    // Ritorna l'attributo dell'area di interazione.
+    // Returns interation area attribute.
     Rectangle get_area() { return Area_; }
     
  private:
-    // Attributi
+    // Attributes
     // -------------------------------------------------------------------------
     
-    // Indica l'area di interazione con il mouse.
+    // Shows interation area with the mouse.
     Rectangle Area_;
     
-    // Indica se l'area è stata premuta (vero) o no (falso).
+    // Shows if the area has been pressed (true) or not (false).
     bool pressed_;
 };
 

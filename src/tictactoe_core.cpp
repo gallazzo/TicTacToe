@@ -19,25 +19,24 @@ void TicTacToeCore::Game()
         NewGame();
 
         do {
-            // Aggiornamento
+            // Update
             // -----------------------------------------------------------------
             Update();
             // -----------------------------------------------------------------
         
-            // Disegno
+            // Drawing
             // -----------------------------------------------------------------
-            BeginDrawing(); // Preparazione al disegno
+            BeginDrawing(); // Prepearing drawing
             
             Draw();
             
-            EndDrawing(); // Fine disegno
+            EndDrawing(); // End drawing
             // -----------------------------------------------------------------
         }
         while(!MainWindow_.new_game_button_is_pressed() &&
               !WindowShouldClose() &&
               !MainWindow_.quit_button_is_pressed());
-        // Il ciclo interno permette di creare un nuovo gioco senza uscire dal
-        // gioco.
+        // The nested do-while permits to create a new game without exiting the game.
     }
 }
 
@@ -63,7 +62,7 @@ void TicTacToeCore::Update()
       case MAIN: {
         MainWindow_.Update(mouse_position);
 
-        if (MainWindow_.help_button_is_pressed()) { // Cambio finestra
+        if (MainWindow_.help_button_is_pressed()) { // Change window
             TicTacToeScreen = HELP;
         }
         break;
@@ -77,7 +76,7 @@ void TicTacToeCore::Update()
         break;
       }
       case SETTINGS: {
-        // TODO(LelixSuper) fare il caso "SETTINGS".
+        // TODO(LelixSuper) work on case "SETTINGS".
         break;
       }
     }
@@ -95,7 +94,7 @@ void TicTacToeCore::Draw()
         break;
       }
       case SETTINGS: {
-        // TODO(LelixSuper) fare il caso "SETTINGS".
+        // TODO(LelixSuper) work on "SETTINGS".
         break;
       }
     }

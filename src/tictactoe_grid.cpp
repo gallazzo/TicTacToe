@@ -2,15 +2,15 @@
 
 TicTacToeGrid::TicTacToeGrid()
 {
-    // TODO(LelixSuper) migliorare l'implementazione.
+    // TODO(LelixSuper) improve implementation.
 
-    // Creazione della griglia.
+    // Grid creation.
     Grid_ = new GraphicElement(386, 40, "resources/main_window/grid.png",
                                WHITE);
     
     Trace_ = new TicTacToeTrace;
     
-    // Creazione delle aree di interazione.
+    // Interation areas creation.
     InteractionBox_[0] = new SxMouseInteraction(406, 54, 136, 136);
     InteractionBox_[1] = new SxMouseInteraction(556, 55, 136, 136);
     InteractionBox_[2] = new SxMouseInteraction(703, 53, 136, 136);
@@ -21,7 +21,7 @@ TicTacToeGrid::TicTacToeGrid()
     InteractionBox_[7] = new SxMouseInteraction(557, 351, 136, 136);
     InteractionBox_[8] = new SxMouseInteraction(701, 353, 136, 136);
     
-    // Creazione delle posizioni logiche della griglia.
+    // Grid logic positions creation.
     CellsPosition_[0].row = 0;
     CellsPosition_[0].column = 0;
     CellsPosition_[1].row = 0;
@@ -41,7 +41,7 @@ TicTacToeGrid::TicTacToeGrid()
     CellsPosition_[8].row = 2;
     CellsPosition_[8].column = 2;
     
-    // Creazione degli angoli x, y delle celle.
+    // Boxes angles x, y creation.
     texture_angle_[0].x = 406;
     texture_angle_[0].y = 54;
     texture_angle_[1].x = 556;
@@ -68,10 +68,10 @@ void TicTacToeGrid::SetGame(TicTacToeGame *Game_input)
     
     Trace_->SetCore(Game_input);
     
-    // Se viene chiamato il seguente metodo vuol dire che si inizia un nuovo
-    // gioco, quindi si ripulisce anche le texture già designate. 
+    // If this method is called, it means that a new game has been
+    // started, so the textures already drawn will be cleaned. 
     for(counter_ = 0; counter_ < 9; counter_++)
-        grid_mark_[counter_] = 4; // il max è 3, quindi 4 indica casel. vuota
+        grid_mark_[counter_] = 4; //  max value is 3, so 4 means empty box.
 }
 
 void TicTacToeGrid::Initialize()
@@ -112,15 +112,14 @@ void TicTacToeGrid::Draw()
 {
     Grid_->Show();
     
-    // Disegno dei segni.
+    // Drawing of signs.
     for(counter_ = 0; counter_ < 9; counter_++) {
-        // Verifica che se nella cella ci sia un simbolo 'X'.
+        // Checks if there is a symbol 'X' in the box.
         if (Game_->get_status(CellsPosition_[counter_]) == 3) {
     
-            // Se non è stato mai assegnato alla cella un segno grafico
-            // allora gliene viene assegnato uno la prima volta,
-            // in modo random. Dalla volta successiva si disegna
-            // il segno assegnatogli.
+            // If a graphic sign hasn't already been assigned so
+            // a value will be assigned for the first time, randomly. 
+            // Next time the sign assigned before will be drawn.
             if (grid_mark_[counter_] == 4) {
                 grid_mark_[counter_] = GetRandomValue(0, 3);
             }
@@ -137,23 +136,23 @@ void TicTacToeGrid::Draw()
         }
     }
     
-    // Disegno delle traccie della vittoria.
+    // Drawing of victory traces.
     Trace_->Draw();
 }
 
 void TicTacToeGrid::Update(Vector2 mouse_position_input)
 {
-    // Verifica se il tasto sinistro del mouse è stato premuto.
+    // Checks if left mouse button has been pressed.
     if(IsMouseButtonDown(MOUSE_LEFT_BUTTON) == true) {
-        // Verifica se è necessario inserire i segni.
+        // Checks if drawing signs is necessary.
         if (Game_->get_won() == 0) {
-            // Ripete per ogni box.
+            // Repeat for each box.
             for(counter_ = 0; counter_ < 9; counter_++) {
-                // Verifica se c'è collisione fra il mouse e i box della griglia.
+                // Checks if there is a collision between mouse and grid boxes.
                 if (CheckCollisionPointRec(mouse_position_input,
                                            InteractionBox_[counter_]->get_area()
                                            )) {
-                    // Verifica se la posizione è libera
+                    // Checks if the position is empty
                     if (Game_->get_status(CellsPosition_[counter_]) == 0) {
                         Game_->DoTurn(CellsPosition_[counter_]);
                     }

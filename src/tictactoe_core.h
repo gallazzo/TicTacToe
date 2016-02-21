@@ -34,54 +34,53 @@
 
 class TicTacToeCore {
  private:
-    // Costanti
+    // Constants
     // -------------------------------------------------------------------------
     
-    const int screenWidth = 850; // Larghezza della finestra.
-    const int screenHeight = 500; // Altezza della finestra.
+    const int screenWidth = 850; // Window width
+    const int screenHeight = 500; // Window height
     
  public:
-    // Metodi
+    // Methods
     // -------------------------------------------------------------------------
     
     // It creates the window and set up Raylib and other classes.
     void Initializes();
     
-    // Loop principale dove aviene lo svolgimento del gioco.
+    // Main loop where the game is loaded.
     void Game();
     
-    // Libera la memoria per la chiusura.
+    // Clears memory for the exit.
     void DeInitializes();
     
  private:
     
-    // Gestisce gli aggiornamenti del gioco.
+    // Manages game updates.
     void Update();
     
-    // Gestise il disegno grafico del gioco.
+    // Manages game graphic drawing.
     void Draw();
     
-    // Elimina l'istanza di 'TicTacToeGame' puntata da Game_ e crea una nuova
-    // istanza per una nuova partita.
+    // Deallocates 'TicTacToeGame' istance pointed by Game_ and creates a new 
+    // istance for a new game.
     void NewGame();
 
-    // Attributi
+    // Attributes
     // -------------------------------------------------------------------------
     
-    // Istanza che indica la finestra principale.
+    // Istance that shows the main window.
     TicTacToeMainWindow MainWindow_;
     
-    // Istanza che indica la finestra di aiuto.
+    // Istance that shows help window.
     TicTacToeHelpWindow HelpWindow_;
     
-    // Puntatore che punta ad una istanza di 'TicTacToeGame', che corrisponde al
-    // gioco.
+    // Pointer that directs to a 'TicTacToeGame' istance, that is the game.
     TicTacToeGame *Game_;
     
-    // Indica la posizione del mouse, aggiornata nel metodo 'Update()'.
+    // Shows mouse position, updated by 'Update()' method.
     Vector2 mouse_position;
     
-    // Indica le varie finestre del gioco.
+    // Shows the windows of the game.
     enum GameScreens { MAIN, SETTINGS, HELP } TicTacToeScreen;
 };
 
