@@ -84,7 +84,7 @@ class TicTacToeTrace {
     //     3 - it indicates the second diagonal trace.
     GraphicElement *Trace_[4];
     
-    // It's the pointer that points to an istance of "TicTacToeGame".
+    // Pointer that points a class istance, where gather and load values.
     // This class uses only "WhereHeWon" method of "TicTacToeGame".
     TicTacToeGame *Game_;
     

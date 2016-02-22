@@ -1,6 +1,4 @@
-// "TicTacToe" using Raylib library
-// 
-// This file is part of TicTacToe, a software under the MIT License
+// This file is part of TicTacToe, a software under the MIT License.
 //
 // Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
 // <emanuele98@openmailbox.org>
@@ -38,29 +36,29 @@ class TicTacToeMainWindow {
     // Methods
     // -------------------------------------------------------------------------
     
-    // Constructor that creates elements but they are not initialized by Raylib.
+    // It creates elements, but they are not initialized by Raylib.
     TicTacToeMainWindow();
     
-    // Initialize the elements.
+    // It initialize the elements.
     void Initialize();
     
-    // Clears elements memory.
+    // It clears elements memory.
     void DeInitialize();
     
-    // Input: a pointer of 'TicTacToeGame' istance.
+    // It sets up the istance from where get the data.
+    // Parameter: an istance of "TicTacToeGame".
     void SetGame(TicTacToeGame *Game_input);
     
-    // Draws the window, including static (buttons, logo, wallpaper) and
-    // and dynamic elements (grid with the game, text).
-    // NB: part of drawing phase.
+    // It draws the window, including static (buttons, logo, wallpaper) and
+    // dynamic elements (grid with marks, text).
+    // NB: part of Raylib drawing phase.
     void Draw();
     
-    // Updates istances basing on the parameter.
-    // Input: mouse position.
-    // NB: part of updating phase.
+    // It updates istances basing on the position of mouse.
+    // Parameter: mouse position.
+    // NB: part of Raylib updating phase.
     void Update(Vector2 mouse_position_input);
     
-    // Return true if the button has been pressed.
     bool quit_button_is_pressed() { return QuitButton_->is_pressed(); }
     
     bool help_button_is_pressed() { return HelpButton_->is_pressed(); }
@@ -71,7 +69,7 @@ class TicTacToeMainWindow {
 
  public:
     
-    // Chooses and draws the texture basing on game status.
+    // It chooses and draws the texture basing on game status.
     void DrawInfo();
     
     // Attributes
