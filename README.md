@@ -1,12 +1,12 @@
 # TicTacToe
 
-TicTacToe is a simple tictactoe game created with Raylib library. I've created this for school purposed, so maybe the software is not perfect.
+TicTacToe is a simple tictactoe game created with Raylib library. I've created this for school purposes, so maybe the software is not perfect.
 
 [![TicTacToe](resources/icon.png)]
 
 ## Description
 
-TicTacToe is a simple tictactoe game created with Raylib library. I've created this for school purposed, so maybe the software is not perfect. I wrote basic classes to use Raylib functions for a "OOP" view; these are in `src/base` folder. These classes can also used for other projects.
+TicTacToe is a simple tictactoe game created with Raylib library. I've created this for school purposes, so maybe the software is not perfect. I wrote basic classes to use Raylib functions for a "OOP" view; these are in `src/base` folder. These classes can also be used for other projects.
 
 ## Dependencies
 
@@ -14,10 +14,10 @@ TicTacToe is a simple tictactoe game created with Raylib library. I've created t
 
 ## Compiling
 
-TicTacToe uses only Raylib library; this library supports multiple platform (Window, GNU/Linux, Mac and others), but I've created a Makefile that works only on GNU/Linux (because i'm learning to create it); thus TicTacToe works with all platform, but for now it works only on GNU/Linux.
+TicTacToe only uses Raylib library; this library supports multiple platform (Window, GNU/Linux, Mac and others), but I've created a Makefile that works only on GNU/Linux (because I'm learning to create it); thus TicTacToe works with all platform, but for now it works only on GNU/Linux.
 
 ### Install Raylib library
-Now I learn how to install Raylib library. If you know, jump this paragraph.
+Now I show you how to install Raylib library. If you know how, skip this paragraph.
 The Raylib library uses other libraries, so first you have to install them. If you are on Ubuntu/Debian, you can install the majority of them using this command:
 
     sudo apt install mesa-common-dev-dev libx11 libxrandr libXi-dev-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
@@ -29,7 +29,7 @@ There is the last dependency (GLFW3):
     cmake .
     sudo make install
     
-After you have to make the Raylib library:
+Then, you have to make the Raylib library:
 
     git clone https://github.com/raysan5/raylib.git raylib
     cd raylib/src/
@@ -41,7 +41,7 @@ Now you can use Raylib on your projects!
 
 ### Compiling TicTacToe
 
-You can simply compile the software with `make`. It produces an executables, you can move it everywhere **BUT** he goes along with the `resources` folder!
+You can simply compile the software with `make`. It produces an executable, you can move it everywhere **BUT** he goes along with the `resources` folder!
 
 You can also use `make clean` to clean the folder.
 
@@ -55,13 +55,13 @@ Use your **mouse** to place marks on the grid. After a game, you can restart cli
 
 You can start the software in a CLI with the `--help` or `--version` parameter.
 
-## Know bugs
+## Known bugs
 
 * When you move the mouse and keep pressed the left mouse button on the grid, the marks are placed.
 
 ## Contact
 
-For reports bugs, advices or feedbacks please send email to *emanuele98(at)openmailbox(dot)org*.
+For bugs report, advice or feedbacks please send an email to *emanuele98(at)openmailbox(dot)org*.
 
 ## Contributors
 

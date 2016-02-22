@@ -17,14 +17,14 @@ DIRECTORY = build
 
 .PHONY : all clean
 
-# Costruzione dell'eseguibile
+# Executable build
 all : TicTacToe $(OBJECTS)
 	@$(CXX) -o TicTacToe $(OBJECTS) $(CXXFLAGS) $(LFLAGS)
 	@echo "TicTacToe builded!"
 
 TicTacToe :
 
-# Costruzione dei vari moduli
+# Modules build
 tictactoe_main.o : tictactoe_main.cpp tictactoe_core.h
 	@$(CXX) -c $< -o $@ $(CXXFLAGS)
 
