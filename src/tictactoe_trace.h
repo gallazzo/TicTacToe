@@ -29,15 +29,15 @@
 #include "base/graphic_element.h"
 #include "tictactoe_game.h"
 
-// Colors of two sign.
+// Colors of two signs.
 #define XMARK (Color){ 255, 15, 1, 255 }
 #define OMARK (Color){ 2, 93, 226, 255 }
 
-// This class manages the graphical traces that you see when a player wins the
+// This class manages the graphic traces that you see when a player wins the
 // game. It's used by "TicTacToeMainGrid".
-// It needs an istance of "TicTacToeGame" to retrieve data for draw the traces;
+// It needs an istance of "TicTacToeGame" to retrieve data to draw the traces;
 // you can assign an istance with "SetCore" method.
-// The class also need the initialization of graphical objects with "Initialize"
+// The class also needs the initialization of graphic objects with "Initialize"
 // and after the deinitialization with "DeInitialize".
 class TicTacToeTrace {
  private:
@@ -45,7 +45,7 @@ class TicTacToeTrace {
     // Constant
     // -------------------------------------------------------------------------
     
-    // It's an array contains the position (x and y with the smaller number) of
+    // It's an array that contains the position (x and y with the smaller number) of
     // the traces.
     static const Vector2 trace_position[9];
     
