@@ -26,19 +26,17 @@
 #ifndef TICTACTOE_GAME_H
 #define TICTACTOE_GAME_H
 
-// Set max turns of a game.
-#define MAX_TURNS 9
+#define MAX_TURNS 9 // Max turns of a game.
 
 // Structure that describe the coordinate on the billboard.
 struct Coordinate {
-    // Suggest line, could gather values between 0 and 2 included.
-    unsigned short int row;
-    // Suggest column, could gather values between 0 and 2 included.
-    unsigned short int column;
+    // They can take values between 0 and 2 included.
+    unsigned short int row, column;
 };
 
-// The class manages the game, or rather the management of the billboard and possible
-// victory. Warning: there's no control of rows and columns inserted, so avoid
+// The class manages the internal game, it provides an interface for retrieve
+// and insert data in the game's billboard.
+// Warning: there's no control of rows and columns inserted, so avoid
 // writing illegal positions!
 class TicTacToeGame {
 public:
@@ -47,14 +45,13 @@ public:
 
     TicTacToeGame();
     
-    // Starts the turn of a plauer.
-    // Input: row and column of the billboard.
-    // Return the following values:
-    //     already filled position -> false,
-    //     turn successfully ended -> true.
+    // It starts the turn of a plauer.
+    // Parameter: row and column of the billboard.
+    // It returns false if the coordinates points to an already filled position,
+    // or true if the turn is successfully ended.
     bool DoTurn(Coordinate Input);
     
-    // Returns values between 0 and 7 included, match the winning 
+    // It returns values between 0 and 7 included, match the winning 
     // combination:
     //    0 - First row combination;
     //    1 - Second row combination;
@@ -67,49 +64,49 @@ public:
     //    8 - General error.
     unsigned short int WhereHeWon();
     
-    // Input: row and column of the billboard.
+    // Parameter: row and column of the billboard.
     // Return the following values:
     //     empty -> 0,
-    //     symbol 'X' drawn -> 3,
-    //     symbol 'O' drawn -> 10,
+    //     symbol 'X' present -> 3,
+    //     symbol 'O' present -> 10,
     unsigned short int get_status(unsigned short int input_row,
                                  unsigned short int input_column) {
         return grid_[input_row][input_column];
     }
 
-    // Input: istance of the structur "Coordinate".
+    // Parameter: istance of the structur "Coordinate".
     // Return the following values:
     //     empty -> 0,
     //     symbol 'X' drawn -> 3,
     //     symbol 'O' drawn -> 10,
-    unsigned short int get_status(Coordinate input_cell) {
-        return grid_[input_cell.row][input_cell.column];
-    }
+    //unsigned short int get_status(Coordinate input_cell) {
+    //    return grid_[input_cell.row][input_cell.column];
+    //}
     
     unsigned short int get_turn() { return turn_; }
     
     unsigned short int get_won() { return win_; }
     
-    // Return the player that should draw the simbol:
+    // It returns the player that should insert the simbol:
     //     player 1 (X) -> false,
     //     player 2 (Y) -> true.
     bool get_player() { return player_; }
     
 private:
     
-    // Check the grid and shows who and how won.
-    // Used by method WinnerTest, in fact returns same values.
-    // Also used by WhereHeWon, throw trace attribute.
+    // It checks the grid and shows who and how won.
+    // Used by "WinnerTest()" method, in fact returns same values.
+    // Also used by "WhereHeWon()", throw trace attribute.
     unsigned short int AnalyzesGrid();
     
-    // Check if the player won.
-    // Return the following value:
+    // It checks if the player won.
+    // Returns the following value:
     //     missing turns -> 0,
     //     player 1 (X) won -> 1,
     //     player 2 (Y) won -> 2,
     //     draw -> 3.
     // NB: this method is used by method DoTurn(), the returned value is
-    // updated in attribute win_.
+    // updated in "win_".
     unsigned short int WinnerTest() { return AnalyzesGrid(); }
 
     // Attributes
@@ -121,7 +118,7 @@ private:
     // Iterators used for different goals in cicles.
     unsigned short int counter_, counter2_;
     
-    //  The 3x3 game grid.
+    // The 3x3 game grid.
     unsigned short int grid_[3][3];
     
     // Used by cicles and checks in methods.

@@ -31,6 +31,10 @@
 #include "base/button.h"
 #include "base/graphic_element.h"
 
+// This class manages the main window of the game. In the software there is one
+// istance of this class. If you want to use it, you must call first 
+// "Initialize()" method and at the end "DeInitialize()" method.
+// The principal methods are "Draw()" and "Update()".
 class TicTacToeMainWindow {
  public:
     // Methods
@@ -39,7 +43,7 @@ class TicTacToeMainWindow {
     // It creates elements, but they are not initialized by Raylib.
     TicTacToeMainWindow();
     
-    // It initialize the elements.
+    // It initializes "GraphicElement" and "Button" objects.
     void Initialize();
     
     // It clears elements memory.

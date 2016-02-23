@@ -45,8 +45,8 @@ class TicTacToeTrace {
     // Constant
     // -------------------------------------------------------------------------
     
-    // It's an array that contains the position (x and y with the smaller number) of
-    // the traces.
+    // It's an array that contains the position (x and y with the smaller
+    // number) of the traces.
     static const Vector2 trace_position[9];
     
  public:
@@ -60,7 +60,7 @@ class TicTacToeTrace {
     // Parameter: an istance of "TicTacToeGame".
     void SetCore(TicTacToeGame *Game_input);
     
-    // It initializes the graphic elements.
+    // It initializes "GraphicElement" objects.
     void Initialize();
     
     // It clears the graphic elements.

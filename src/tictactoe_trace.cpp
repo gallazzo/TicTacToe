@@ -53,6 +53,7 @@ void TicTacToeTrace::SetCore(TicTacToeGame *Game_input)
     
     // Reset of "trace_" member.
     trace_ = 8;
+}
 
 void TicTacToeTrace::Initialize()
 {

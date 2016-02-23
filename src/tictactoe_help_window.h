@@ -1,6 +1,4 @@
-// "TicTacToe" using Raylib library
-// 
-// This file is part of TicTacToe, a software under the MIT License
+// This file is part of TicTacToe, a software under the MIT License.
 //
 // Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
 // <emanuele98@openmailbox.org>
@@ -31,27 +29,31 @@
 #include "base/graphic_element.h"
 #include "base/button.h"
 
+// This class manages the help window. In the software there is one
+// istance of this class. If you want to use it, you must call first 
+// "Initialize()" method and at the end "DeInitialize()" method.
+// The principal methods are "Draw()" and "Update()".
 class TicTacToeHelpWindow {
  public:
     // Methods
     // -------------------------------------------------------------------------
     
-    // Constructor that creates elements but they aren't initialized by Raylib.
+    // It creates elements but they aren't initialized by Raylib.
     TicTacToeHelpWindow();
     
-    // Initialize elements.
+    // It initialize "GraphicElements" and "Button" objects.
     void Initialize();
     
-    // Clears element memory.
+    // It clears element memory.
     void DeInitialize();
     
-    // Draws the window with the elements.
-    // NB: part of drawing phase.
+    // It draws the window with the elements.
+    // NB: part of Raylib drawing phase.
     void Draw();
     
     // Updates istances basing on the parameter.
     // Input: mouse position.
-    // NB: part of updating phase.
+    // NB: part of Raylib updating phase.
     void Update(Vector2 mouse_position_input);
 
     // Returns true if the button is pressed.
@@ -61,16 +63,14 @@ class TicTacToeHelpWindow {
     // Attributes
     // -------------------------------------------------------------------------
     
-    // Pointer that points 'GraphicElement' istance, shows backgroung window
-    // wallpaper.
+    // Pointer that points to an 'GraphicElement' istance,
+    // that shows backgroung window wallpaper.
     GraphicElement *Background_;
     
-    // Pointer that pints 'GraphicElement' istance, shows the text that must
-    // be displayed.
+    // It shows the text that must be displayed.
     GraphicElement *InfoText_;
     
-    // Pointer that points a 'Button' istance, in this case the button that 
-    // closes the window.
+    // Is the button that closes the window.
     Button *BackButton_;
 };
 

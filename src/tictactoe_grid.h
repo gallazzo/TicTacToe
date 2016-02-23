@@ -34,70 +34,71 @@
 #include "base/sx_mouse_interaction.h"
 #include "base/graphic_element.h"
 
+// This class manages the grid of the game. In the software there is one
+// istance of this class. If you want to use it, you must call first 
+// "Initialize()" method and at the end "DeInitialize()" method.
+// The principal methods are "Draw()" and "Update()".
 class TicTacToeGrid {
  public:
     // Methods
     // -------------------------------------------------------------------------
     
-    // Constructors.
-    // Point the pointers that creates istances.
+    // It initializes the object and sets up the default values.
     TicTacToeGrid();
     
-    // Set 'TicTacToeCore' istance to gather and load data
-    // Input: 'TicTacToeCore' istance.
+    // It sets up the istance from where get the data.
+    // Parameter: an istance of "TicTacToeGame".
     void SetGame(TicTacToeGame *Game_input);
     
-    // Initialize textures.
+    // It initializes "GraphicElement" objects.
     void Initialize();
     
-    // Clears texture memory.
+    // It clears texture memory.
     void DeInitialize();
     
     // Draws the grid and its content.
-    // Part of drawing phase.
+    // NB: part of Raylib drawing phase.
     void Draw();
     
     // Updates the grid basing on mouse position.
     // Input: mouse position.
-    // NB: input phase.
+    // NB: part of Raylib input phase.
     void Update(Vector2 mouse_position_input);
     
  private:
-    
     // Attributes
     // -------------------------------------------------------------------------
     
-    // Pointer that points a TicTacToeCore istance, where to gather and load 
-	// data
+    // Pointer that points a class istance, where load values.
     TicTacToeGame *Game_;
     
-    // Pointer that points a graphic element istance, in this case the grid.
+    // It indicates the texture of the grid.
     GraphicElement *Grid_;
     
-    // Pointers that points every interation areas (rectangles) in the grid.
+    // They are interation areas (rectangles) in the grid.
     // The numbering matches with the grid logic one:
     //     0 | 1 | 2
     //     ---------
     //     3 | 4 | 5
     //     ---------
     //     6 | 7 | 8
-    // Used for input.
+    // Used for input signs.
     SxMouseInteraction *InteractionBox_[9];
     
     // Shows grid logic coordinates, they are numbered basing on
-    // InteractionBox_ and Mark_.
+    // "InteractionBox_" and "x/o_sign_".
     // Used for drawing and input.
     Coordinate CellsPosition_[9];
     
     // Shows angles (x, y) of every box.
-    // Used for drawing.
+    // Used for drawing signs.
     Vector2 texture_angle_[9];
     
     // Symbol 'X' with its variants.
-    Texture2D x_mark_[4];
+    Texture2D x_sign_[4];
     
     // Symbol 'O' with its variants.
-    Texture2D o_mark_[4];
+    Texture2D o_sign_[4];
     
     // Shows the number that identify symbol variants that there are
     // in grid boxes.

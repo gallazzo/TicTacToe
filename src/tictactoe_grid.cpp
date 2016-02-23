@@ -1,8 +1,31 @@
+// This file is part of TicTacToe, a software under the MIT License.
+//
+// Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
+// <emanuele98@openmailbox.org>
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy 
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights 
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+// copies of the Software, and to permit persons to whom the Software is 
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
 #include "tictactoe_grid.h"
 
 TicTacToeGrid::TicTacToeGrid()
 {
-    // TODO(LelixSuper) improve implementation.
+    // TODO: improve implementation here.
 
     // Grid creation.
     Grid_ = new GraphicElement(386, 40, "resources/main_window/grid.png",
@@ -71,7 +94,7 @@ void TicTacToeGrid::SetGame(TicTacToeGame *Game_input)
     // If this method is called, it means that a new game has been
     // started, so the textures already drawn will be cleaned. 
     for(counter_ = 0; counter_ < 9; counter_++)
-        grid_mark_[counter_] = 4; //  max value is 3, so 4 means empty box.
+        grid_mark_[counter_] = 4; // Max value is 3, so 4 means empty box.
 }
 
 void TicTacToeGrid::Initialize()
@@ -80,15 +103,15 @@ void TicTacToeGrid::Initialize()
     
     Trace_->Initialize();
     
-    x_mark_[0] = LoadTexture("resources/marks/x_mark_1.png");
-    x_mark_[1] = LoadTexture("resources/marks/x_mark_1_mirrored.png");
-    x_mark_[2] = LoadTexture("resources/marks/x_mark_2.png");
-    x_mark_[3] = LoadTexture("resources/marks/x_mark_2_mirrored.png");
+    x_sign_[0] = LoadTexture("resources/marks/x_mark_1.png");
+    x_sign_[1] = LoadTexture("resources/marks/x_mark_1_mirrored.png");
+    x_sign_[2] = LoadTexture("resources/marks/x_mark_2.png");
+    x_sign_[3] = LoadTexture("resources/marks/x_mark_2_mirrored.png");
     
-    o_mark_[0] = LoadTexture("resources/marks/o_mark_1.png");
-    o_mark_[1] = LoadTexture("resources/marks/o_mark_1_mirrored.png");
-    o_mark_[2] = LoadTexture("resources/marks/o_mark_2.png");
-    o_mark_[3] = LoadTexture("resources/marks/o_mark_2_mirrored.png");
+    o_sign_[0] = LoadTexture("resources/marks/o_mark_1.png");
+    o_sign_[1] = LoadTexture("resources/marks/o_mark_1_mirrored.png");
+    o_sign_[2] = LoadTexture("resources/marks/o_mark_2.png");
+    o_sign_[3] = LoadTexture("resources/marks/o_mark_2_mirrored.png");
 }
 
 void TicTacToeGrid::DeInitialize()
@@ -97,15 +120,15 @@ void TicTacToeGrid::DeInitialize()
     
     Trace_->DeInitialize();
     
-    UnloadTexture(x_mark_[0]);
-    UnloadTexture(x_mark_[1]);
-    UnloadTexture(x_mark_[2]);
-    UnloadTexture(x_mark_[3]);
+    UnloadTexture(x_sign_[0]);
+    UnloadTexture(x_sign_[1]);
+    UnloadTexture(x_sign_[2]);
+    UnloadTexture(x_sign_[3]);
     
-    UnloadTexture(o_mark_[0]);
-    UnloadTexture(o_mark_[1]);
-    UnloadTexture(o_mark_[2]);
-    UnloadTexture(o_mark_[3]);
+    UnloadTexture(o_sign_[0]);
+    UnloadTexture(o_sign_[1]);
+    UnloadTexture(o_sign_[2]);
+    UnloadTexture(o_sign_[3]);
 }
     
 void TicTacToeGrid::Draw()
@@ -115,23 +138,25 @@ void TicTacToeGrid::Draw()
     // Drawing of signs.
     for(counter_ = 0; counter_ < 9; counter_++) {
         // Checks if there is a symbol 'X' in the box.
-        if (Game_->get_status(CellsPosition_[counter_]) == 3) {
+        if (Game_->get_status(CellsPosition_[counter_].row,
+                              CellsPosition_[counter_].column) == 3) {
     
-            // If a graphic sign hasn't already been assigned so
+            // If a graphic sign hasn't already been assigned,
             // a value will be assigned for the first time, randomly. 
             // Next time the sign assigned before will be drawn.
             if (grid_mark_[counter_] == 4) {
                 grid_mark_[counter_] = GetRandomValue(0, 3);
             }
-            DrawTextureV(x_mark_[grid_mark_[counter_]],
+            DrawTextureV(x_sign_[grid_mark_[counter_]],
                          texture_angle_[counter_], WHITE);
             
-        } else if (Game_->get_status(CellsPosition_[counter_]) == 10) {
+        } else if (Game_->get_status(CellsPosition_[counter_].row,
+                                     CellsPosition_[counter_].column) == 10) {
             
             if (grid_mark_[counter_] == 4) {
                 grid_mark_[counter_] = GetRandomValue(0, 3);
             }
-            DrawTextureV(o_mark_[grid_mark_[counter_]],
+            DrawTextureV(o_sign_[grid_mark_[counter_]],
                          texture_angle_[counter_], WHITE);
         }
     }
@@ -153,7 +178,8 @@ void TicTacToeGrid::Update(Vector2 mouse_position_input)
                                            InteractionBox_[counter_]->get_area()
                                            )) {
                     // Checks if the position is empty
-                    if (Game_->get_status(CellsPosition_[counter_]) == 0) {
+                    if (Game_->get_status(CellsPosition_[counter_].row,
+                                          CellsPosition_[counter_].row) == 0) {
                         Game_->DoTurn(CellsPosition_[counter_]);
                     }
                 }
