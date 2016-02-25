@@ -1,6 +1,4 @@
-// "TicTacToe" using Raylib library
-// 
-// This file is part of TicTacToe, a software under the MIT License
+// This file is part of TicTacToe, a software under the MIT License.
 //
 // Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
 // <emanuele98@openmailbox.org>
@@ -28,39 +26,43 @@
 
 #include <raylib/raylib.h>
 
+// This is a general class thath you can use for other project that use Raylib.
+// This class manages an interaction of the mouse with the game. You can create
+// a rectangular area for tracking the user that clicks (and keeps pressed) with
+// the left button in this area.
 class SxMouseInteraction {
  public:
     // Methods
     // -------------------------------------------------------------------------
     
-    // Constructor.
-    // Input:
+    // It creates the tracking area.
+    // Parameters:
     //     x_input = position x of the top left angle;
     //     y_input = position y of the top left angle;
-    //     height_input = area height;
-    //     width_input = area width.
+    //     height_input = area's height;
+    //     width_input = area's width.
     SxMouseInteraction(int x_input, int y_input, int height_input,
                        int width_input);
     
-    // Updates pressed attribute, that shows if it has been pressed or not.
-    // Input: mouse coordinates.
+    // It updates "pressed_" attribute, that shows if it pressed or not.
+    // Parameter: mouse coordinates.
     void Update(Vector2 mouse_position_input);
     
-    // Returns pressed attribute. If 'true' in the area there was an interation
-    // with mouse coordinates managed by 'Update()'.
+    // It returns "pressed_" attribute. It returns 'true' if in the user clicks
+    // and keeps pressed the left button of the mouse in the tracking area.
     bool is_pressed() { return pressed_; }
     
-    // Returns interation area attribute.
+    // It returns the rectangle of the tracking area.
     Rectangle get_area() { return Area_; }
     
  private:
     // Attributes
     // -------------------------------------------------------------------------
     
-    // Shows interation area with the mouse.
+    // It's the tracking area.
     Rectangle Area_;
     
-    // Shows if the area has been pressed (true) or not (false).
+    // It indicates if the area is pressed (true) or not (false).
     bool pressed_;
 };
 

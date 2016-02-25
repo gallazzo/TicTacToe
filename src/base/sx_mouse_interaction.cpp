@@ -14,7 +14,7 @@ void SxMouseInteraction::Update(Vector2 mouse_position_input)
 {
     // Checks if the left mouse button has been pressed.
     if(IsMouseButtonDown(MOUSE_LEFT_BUTTON) == true) {
-        // Checks the collision with the area.
+        // Checks the collision with the tracking area.
         if(CheckCollisionPointRec(mouse_position_input, Area_)) {
             pressed_ = true;
         } else {

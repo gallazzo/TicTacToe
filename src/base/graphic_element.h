@@ -1,6 +1,4 @@
-// "TicTacToe" using Raylib library
-// 
-// This file is part of TicTacToe, a software under the MIT License
+// This file is part of TicTacToe, a software under the MIT License.
 //
 // Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
 // <emanuele98@openmailbox.org>
@@ -32,57 +30,57 @@
 
 using namespace std;
 
+// This is a general class thath you can use for other project that use Raylib.
+// This class manages an graphic element of the screen. It don't provide any
+// interaction with user, only the drawing.
 class GraphicElement {
  public:
     // Methods
     // -------------------------------------------------------------------------
     
-    // Constructor.
+    // It creates the istance but don't initializes the graphic element.
     // Input:
-    //     x_input = position x of the element;
-    //     y_input = position y of the element;
-    //     path_input = image path.
-    //     Color_input = graphic color (set WHITE) by default.
-    // NB: the position is refered to top left angle position!
+    //     x_input = position x of the top left image's angle;
+    //     y_input = position y of the top left image's angle;
+    //     path_input = image's path.
+    //     Color_input = image's color (set WHITE for default).
     GraphicElement(int x_input, int y_input, string path_input,
                    Color Color_input);
     
-    // Alternative constructor. It is used when the istance changes
-    // coordinates and color. Input:
-    //     path_input = image path.
+    // Alternative constructor. It is used when the graphic element changes
+    // coordinates and color. Parameter:
+    //     path_input = image's path.
     GraphicElement(string path_input);
     
-    // Loads element image and turns it into texture.
-    // It returns void.
-    // NB: use the method only after creating the window (InitWindow)!
+    // It loads image and turns it into texture.
+    // You must use the method after creating the Raylib window (InitWindow)!
     void Initializes();
     
-    // Clear space used by texture in memory.
-    // It returns void.
+    // It clears space used by texture in GPU memory.
     void DeInitializes();
     
-    // Draws the element basing on arguments read by constructor.
+    // Draws the element on the screen.
     void Show();
     
-    // Set graphic element position.
-    // Input: coordinates x and y of the element.
+    // Set graphic element's position.
+    // Parameters: coordinates x and y of the top left image's angle.
     void set_position(int x_input, int y_input) { x_ = x_input; y_ = y_input; }
     
-    // Set graphic element color.
-    // Input: element color.
+    // Set graphic element's color.
+    // Parameter: element's color.
     void set_color(Color color_input) { Color_ = color_input; }
     
  private:
     // Attributes
     // -------------------------------------------------------------------------
     
-    // Shows image path.
+    // It indicates the image's path.
     string path_;
     
-    // Shows position in abscissa of the top left angle.
+    // It indicates the abscissa's position of the top left element's.
     int x_;
     
-    // Shows position in coordinates of the top left angle.
+    // It indicates the ordinate position of the top left element's.
     int y_;
     
     // Element texture.
