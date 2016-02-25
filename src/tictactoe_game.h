@@ -1,6 +1,4 @@
-// "TicTacToe" using Raylib library
-// 
-// This file is part of TicTacToe, a software under the MIT License
+// This file is part of TicTacToe, a software under the MIT License.
 //
 // Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
 // <emanuele98@openmailbox.org>
@@ -73,15 +71,6 @@ public:
                                  unsigned short int input_column) {
         return grid_[input_row][input_column];
     }
-
-    // Parameter: istance of the structur "Coordinate".
-    // Return the following values:
-    //     empty -> 0,
-    //     symbol 'X' drawn -> 3,
-    //     symbol 'O' drawn -> 10,
-    //unsigned short int get_status(Coordinate input_cell) {
-    //    return grid_[input_cell.row][input_cell.column];
-    //}
     
     unsigned short int get_turn() { return turn_; }
     

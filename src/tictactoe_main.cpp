@@ -1,6 +1,4 @@
-// "TicTacToe" using Raylib library
-// 
-// This file is part of TicTacToe, a software under the MIT License
+// This file is part of TicTacToe, a software under the MIT License.
 //
 // Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
 // <emanuele98@openmailbox.org>

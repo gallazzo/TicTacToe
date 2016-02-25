@@ -1,6 +1,4 @@
-// "TicTacToe" using Raylib library
-// 
-// This file is part of TicTacToe, a software under the MIT License
+// This file is part of TicTacToe, a software under the MIT License.
 //
 // Copyright (c) 2016 Emanuele Petriglia (also known as LelixSuper)
 // <emanuele98@openmailbox.org>
@@ -33,7 +31,7 @@ TicTacToeGame::TicTacToeGame()
     
     win_ = 0;
     
-    player_ = true; // Player 1 always begins the game (X).
+    player_ = true; // Player 1 (X) always begins the game.
     
     // Initialize the grid filling it with zeros.
     for (row_ = 0; row_ < 3; row_++)
@@ -57,10 +55,9 @@ bool TicTacToeGame::DoTurn(Coordinate Input)
         sign_ = 10;
     }
     
-    // Assign a value in the grid
-    grid_[Input.row][Input.column] = sign_;
+    grid_[Input.row][Input.column] = sign_; // Assign the value in the grid.
     
-    win_ = WinnerTest();
+    win_ = WinnerTest(); // Update the "win_" member.
     
     return true;
 }
@@ -92,7 +89,7 @@ unsigned short int TicTacToeGame::AnalyzesGrid()
         // Values 0-1-2 matches the rows into the grid.
         trace_ = counter2_;
         
-        // The score 9 means that Player 1 (X) won, and the score
+        // The score 9 means that Player 1 (X) won, while the score
         // 30 means that Player 2 (Y) won instead.
         if (score_ == 9)
             return 1;
@@ -108,7 +105,7 @@ unsigned short int TicTacToeGame::AnalyzesGrid()
             score_ += grid_[row_][column_];
         }
         
-        // Values 3-4-5 means the columns (that's why values start from 3).
+        // Values 3-4-5 matches the columns (that's why values start from 3).
         trace_ = counter2_;
         
         if (score_ == 9)
@@ -126,7 +123,7 @@ unsigned short int TicTacToeGame::AnalyzesGrid()
         score_ += grid_[row_][column_];
     }
 
-    trace_ = 7; // 6 matches the second diagonal.
+    trace_ = 7; // 7 matches the second diagonal.
 
     if (score_ == 9)
         return 1;

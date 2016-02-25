@@ -1,6 +1,4 @@
-// "TicTacToe" using Raylib library
-// 
-// This file is part of TicTacToe, a software under the MIT License
+// This file is part of TicTacToe, a software under the MIT License.
 //
 // Copyright (c) 2016 Emanuele Petriglia (LelixSuper)
 // <emanuele98@openmailbox.org>
@@ -32,36 +30,38 @@
 #include "tictactoe_main_window.h"
 #include "tictactoe_help_window.h"
 
+// This class manages the entire game, in particular the game's loop. It manages
+// also the windows and the initialization of Raylib.
 class TicTacToeCore {
  private:
     // Constants
     // -------------------------------------------------------------------------
     
-    const int screenWidth = 850; // Window width
-    const int screenHeight = 500; // Window height
+    const int screenWidth;
+    const int screenHeight;
     
  public:
     // Methods
     // -------------------------------------------------------------------------
     
-    // It creates the window and set up Raylib and other classes.
+    // It creates the window, set up Raylib and other classes.
     void Initializes();
     
-    // Main loop where the game is loaded.
+    // Main game loop.
     void Game();
     
-    // Clears memory for the exit.
+    // It clears memory for the exit.
     void DeInitializes();
     
  private:
     
-    // Manages game updates.
+    // It manages game updates.
     void Update();
     
-    // Manages game graphic drawing.
+    // It manages game graphic drawing.
     void Draw();
     
-    // Deallocates 'TicTacToeGame' istance pointed by Game_ and creates a new 
+    // Deallocates 'TicTacToeGame' istance pointed by "Game_" and creates a new 
     // istance for a new game.
     void NewGame();
 
@@ -74,10 +74,10 @@ class TicTacToeCore {
     // Istance that shows help window.
     TicTacToeHelpWindow HelpWindow_;
     
-    // Pointer that directs to a 'TicTacToeGame' istance, that is the game.
+    // Pointer that directs to a "TicTacToeGame" istance, that is the game.
     TicTacToeGame *Game_;
     
-    // Shows mouse position, updated by 'Update()' method.
+    // It indicates mouse position, updated by "Update()" method.
     Vector2 mouse_position;
     
     // Shows the windows of the game.
