@@ -2,7 +2,7 @@
 
 TicTacToe is a simple tictactoe game created with Raylib library. I've created this for school purposes, so maybe the software is not perfect.
 
-[![TicTacToe](resources/icon.png)]
+[<img src="resources/icon.png" width=300>](resources/icon.png)
 
 ## Description
 
@@ -16,7 +16,7 @@ I'm not english, so there are lots of errors! You can help me to fix these!
 
 ## Compiling
 
-TicTacToe only uses Raylib library; this library supports multiple platform (Window, GNU/Linux, Mac and others), but I've created a Makefile that works only on GNU/Linux (because I'm learning to create it); thus TicTacToe works with all platform, but for now it works only on GNU/Linux. If you want to help me, write me!
+TicTacToe only uses Raylib library; this library supports multiple platform (Window, GNU/Linux, Mac and others), but I've created a Makefile that works only on GNU/Linux (because I'm learning to create it); thus TicTacToe works with all platforms, but for now it works only on GNU/Linux. If you want to help me, write me!
 
 ### Install Raylib library
 Now I show you how to install Raylib library. If you know how, skip this paragraph.
@@ -49,8 +49,8 @@ You can also use `make clean` to clean the folder.
 
 ## Play
 
-[![DefaultScreen](screenshots/default.png)]
-[![WinningScreen](screenshots/win.png)]
+[<img src="screenshots/default.png" width=400>](screenshots/default.png)
+[<img src="screenshots/win.png" width=400>](screenshots/win.png)
 
 ### How to play
 You can use the **left mouse button** to place marks on the grid. After a game, you can restart clicking on the "New Game" button. There is also the quit and help button.
@@ -71,7 +71,7 @@ I'm really busy with the school, but if I can, i would like to add these things:
 
 ## Contact
 
-For bugs report, advice or feedbacks please send an email to *emanuele98(at)openmailbox(dot)org*, or contact me with Telegram (my nickname is [**LelixSuper**](http://telegram.me/LelixSuper).
+For bugs report, advice or feedbacks please send an email to *emanuele98(at)openmailbox(dot)org*, or contact me with Telegram (my nickname is [**LelixSuper**](http://telegram.me/LelixSuper)).
 
 ## Contributors
 
