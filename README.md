@@ -8,6 +8,8 @@ TicTacToe is a simple tictactoe game created with Raylib library. I've created t
 
 TicTacToe is a simple tictactoe game created with Raylib library. I've created this for school purposes, so maybe the software is not perfect. I wrote basic classes to use Raylib functions for a "OOP" view; these are in `src/base` folder. These classes can also be used for other projects.
 
+I'm not english, so there are lots of errors! You can help me to fix these!
+
 ## Dependencies
 
 * Raylib (1.3 version, 1.4 it's not tested).
