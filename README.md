@@ -10,15 +10,15 @@ TicTacToe is a simple tictactoe game created with Raylib library. I've created t
 
 I'm not english, so there are lots of errors! You can help me to fix these!
 
-## Dependencies
+## Dependence
 
 * Raylib (1.3 version, 1.4 it's not tested).
 
-## Compiling
+## Build
 
 TicTacToe only uses Raylib library; this library supports multiple platform (Window, GNU/Linux, Mac and others), but I've created a Makefile that works only on GNU/Linux (because I'm learning to create it); thus TicTacToe works with all platforms, but for now it works only on GNU/Linux. If you want to help me, write me!
 
-### Install Raylib library
+### Build Raylib library
 Now I show you how to install Raylib library. If you know how, skip this paragraph.
 The Raylib library uses other libraries, so first you have to install them. I use Ubuntu, so you can install the majority of them using this command (it works with all OS that use APT):
 
@@ -41,7 +41,7 @@ Now, you can install Raylib library. You can build it with theese commands:
 
 Now you can use Raylib on your projects!
 
-### Compiling TicTacToe
+### Build TicTacToe
 
 You can simply compile the software with `make`. It produces an executable, you can move it everywhere **BUT** he goes along with the `resources` folder!
 
