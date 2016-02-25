@@ -37,8 +37,8 @@ class TicTacToeCore {
     // Constants
     // -------------------------------------------------------------------------
     
-    const int screenWidth;
-    const int screenHeight;
+    const int screenWidth = 850;
+    const int screenHeight = 500;
     
  public:
     // Methods

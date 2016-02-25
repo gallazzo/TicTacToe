@@ -23,9 +23,6 @@
 
 #include "tictactoe_core.h"
 
-const TicTacToeCore::screenWidth = 850;
-const TicTacToeCore::screenHeight = 500;
-
 void TicTacToeCore::Initializes()
 {
     InitWindow(screenWidth, screenHeight, "TicTacToe");
