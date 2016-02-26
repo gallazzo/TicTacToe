@@ -59,12 +59,13 @@ You can start the software in a CLI with the `--help` or `--version` parameter, 
 
 ## Known bugs
 
-* When you move the mouse and keep pressed the left mouse button on the grid, the marks are placed.
+*No bugs? Really?*
 
-## To do
+## To do list
 
 I'm really busy with the school, but if I can, i would like to add these things:
 * Update the project to Raylib 1.4; [must, technological]
+* Improve makefile to support more platforms; [must, technological]
 * Add a very simple AI (so also add a settings window); [should, functional]
 * Add the support of arrow keys (thus also enter button); [should, functional]
 * Add a very basis animation for graphic elements. [should, not functional]
