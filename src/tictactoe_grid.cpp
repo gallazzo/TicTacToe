@@ -168,7 +168,7 @@ void TicTacToeGrid::Draw()
 void TicTacToeGrid::Update(Vector2 mouse_position_input)
 {
     // Checks if left mouse button has been pressed.
-    if(IsMouseButtonDown(MOUSE_LEFT_BUTTON) == true) {
+    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) == true) {
         // Checks if drawing signs is necessary.
         if (Game_->get_won() == 0) {
             // Repeat for each box.
