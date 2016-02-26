@@ -52,7 +52,7 @@ int main(int argc, char** argv)
                  << "<emanuele98@openmailbox.org>.\n";
         // Output with "--version" parameter.
         } else if (parameter == version_command) {
-            cout << "TicTacToe XX\nCopyright (C) 2016 Emanuele Petriglia "
+            cout << "TicTacToe v0.1.1\nCopyright (C) 2016 Emanuele Petriglia "
                  << "(LelixSuper)\nLicense MIT: "
                  << "<http://opensource.org/licenses/MIT>.\n";
         }
