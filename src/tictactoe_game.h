@@ -62,8 +62,8 @@ public:
     //    8 - General error.
     unsigned short int WhereHeWon();
     
-    // Parameter: row and column of the billboard.
-    // Return the following values:
+    // Parameters: row and column of the billboard.
+    // It returns the following values:
     //     empty -> 0,
     //     symbol 'X' present -> 3,
     //     symbol 'O' present -> 10,
@@ -71,6 +71,14 @@ public:
                                  unsigned short int input_column) {
         return grid_[input_row][input_column];
     }
+    
+    // Parameter: a structure of Coordinate.
+    // It returns the same values of other overloaded mathod.
+    unsigned short int get_status(Coordinate PositionInput) {
+        return grid_[PositionInput.row][PositionInput.column];
+    }
+    
+    
     
     unsigned short int get_turn() { return turn_; }
     

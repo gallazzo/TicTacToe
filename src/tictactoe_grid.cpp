@@ -179,7 +179,7 @@ void TicTacToeGrid::Update(Vector2 mouse_position_input)
                                            )) {
                     // Checks if the position is empty
                     if (Game_->get_status(CellsPosition_[counter_].row,
-                                          CellsPosition_[counter_].row) == 0) {
+                                          CellsPosition_[counter_].column) == 0) {
                         Game_->DoTurn(CellsPosition_[counter_]);
                     }
                 }
