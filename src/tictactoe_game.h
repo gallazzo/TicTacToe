@@ -78,8 +78,6 @@ public:
         return grid_[PositionInput.row][PositionInput.column];
     }
     
-    
-    
     unsigned short int get_turn() { return turn_; }
     
     unsigned short int get_won() { return win_; }

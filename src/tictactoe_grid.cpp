@@ -138,8 +138,7 @@ void TicTacToeGrid::Draw()
     // Drawing of signs.
     for(counter_ = 0; counter_ < 9; counter_++) {
         // Checks if there is a symbol 'X' in the box.
-        if (Game_->get_status(CellsPosition_[counter_].row,
-                              CellsPosition_[counter_].column) == 3) {
+        if (Game_->get_status(CellsPosition_[counter_]) == 3) {
     
             // If a graphic sign hasn't already been assigned,
             // a value will be assigned for the first time, randomly. 
@@ -150,8 +149,7 @@ void TicTacToeGrid::Draw()
             DrawTextureV(x_sign_[grid_mark_[counter_]],
                          texture_angle_[counter_], WHITE);
             
-        } else if (Game_->get_status(CellsPosition_[counter_].row,
-                                     CellsPosition_[counter_].column) == 10) {
+        } else if (Game_->get_status(CellsPosition_[counter_]) == 10) {
             
             if (grid_mark_[counter_] == 4) {
                 grid_mark_[counter_] = GetRandomValue(0, 3);
@@ -178,8 +176,7 @@ void TicTacToeGrid::Update(Vector2 mouse_position_input)
                                            InteractionBox_[counter_]->get_area()
                                            )) {
                     // Checks if the position is empty
-                    if (Game_->get_status(CellsPosition_[counter_].row,
-                                          CellsPosition_[counter_].column) == 0) {
+                    if (Game_->get_status(CellsPosition_[counter_]) == 0) {
                         Game_->DoTurn(CellsPosition_[counter_]);
                     }
                 }
