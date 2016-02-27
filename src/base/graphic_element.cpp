@@ -36,11 +36,22 @@ GraphicElement::GraphicElement(string path_input)
     path_ = path_input;
 }
 
+void GraphicElement::FlipHorizontal()
+{
+    Image_ = new Image;
+    *Image_ = LoadImage(path_.c_str());
+    ImageFlipHorizontal(Image_);
+}
+
 void GraphicElement::Initializes()
 {
-    // "LoadTexture()" accepts only a C string, so it's necessary convert
-    // "path_".
-    Texture_ = LoadTexture(path_.c_str());
+    // Raylib's function with paths accetps only C string, so it's necessary
+    // convert "path_".
+    if (Image_ != NULL) {
+        Texture_ = LoadTextureFromImage(*Image_);
+    } else {
+        Texture_ = LoadTexture(path_.c_str());
+    }
 }
 
 void GraphicElement::DeInitializes()
