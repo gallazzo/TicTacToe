@@ -36,8 +36,8 @@ Now, you can install Raylib library. You can build it with theese commands:
     git clone https://github.com/raysan5/raylib.git raylib
     cd raylib/src/
     make
-    sudo cp libraylib.a usr/local/lib/libraylib.a
-    sudo cp raylib.h usr/local/include/raylib/raylib.h
+    sudo cp libraylib.a /usr/local/lib/libraylib.a
+    sudo cp raylib.h /usr/local/include/raylib/raylib.h
 
 Now you can use Raylib on your projects!
 
