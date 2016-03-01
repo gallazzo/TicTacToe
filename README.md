@@ -1,6 +1,6 @@
 # TicTacToe
 
-TicTacToe is a simple tictactoe game created with Raylib library. I've created this for school purposes, so maybe the software is not perfect.
+TicTacToe is a simple tictactoe game created with raylib library. I've created this for school purposes, so maybe the software is not perfect.
 
 [<img src="resources/icon.png" width=300>](resources/icon.png)
 
@@ -12,14 +12,14 @@ I'm not english, so there are lots of errors! You can help me to fix these!
 
 ## Dependence
 
-* Raylib (1.3 version, 1.4 it's not tested).
+* raylib (1.3 version, 1.4 it's not tested).
 
 ## Build
 
-TicTacToe only uses Raylib library; this library supports multiple platform (Window, GNU/Linux, Mac and others), but I've created a Makefile that works only on GNU/Linux (because I'm learning to create it); thus TicTacToe works with all platforms, but for now it works only on GNU/Linux. If you want to help me, write me!
+TicTacToe only uses raylib library; this library supports multiple platform (Window, GNU/Linux, Mac and others), but I've created a Makefile that works only on GNU/Linux (because I'm learning to create it); thus TicTacToe works with all platforms, but for now it works only on GNU/Linux. If you want to help me, write me!
 
-### Build Raylib library
-Now I show you how to install Raylib library. If you know how, skip this paragraph.
+### Build raylib library
+Now I show you how to install raylib library. If you know how, skip this paragraph.
 The Raylib library uses other libraries, so first you have to install them. I use Ubuntu, so you can install the majority of them using this command (it works with all OS that use APT):
 
     sudo apt install mesa-common-dev-dev libx11 libxrandr libXi-dev-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
@@ -31,7 +31,7 @@ There is the last dependency (GLFW3); you need also cmake:
     cmake .
     sudo make install
     
-Now, you can install Raylib library. You can build it with theese commands:
+Now, you can install raylib library. You can build it with theese commands:
 
     git clone https://github.com/raysan5/raylib.git raylib
     cd raylib/src/
@@ -39,7 +39,7 @@ Now, you can install Raylib library. You can build it with theese commands:
     sudo cp libraylib.a /usr/local/lib/libraylib.a
     sudo cp raylib.h /usr/local/include/raylib/raylib.h
 
-Now you can use Raylib on your projects!
+Now you can use raylib on your projects!
 
 ### Build TicTacToe
 
@@ -64,7 +64,7 @@ You can start the software in a CLI with the `--help` or `--version` parameter, 
 ## To do list
 
 I'm really busy with the school, but if I can, i would like to add these things:
-* Update the project to Raylib 1.4; [must, technological]
+* Update the project to raylib 1.4; [must, technological]
 * Improve makefile to support more platforms; [must, technological]
 * Add a very simple AI (so also add a settings window); [should, functional]
 * Add the support of arrow keys (thus also enter button); [should, functional]
