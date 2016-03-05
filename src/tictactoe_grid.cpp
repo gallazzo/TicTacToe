@@ -33,6 +33,17 @@ TicTacToeGrid::TicTacToeGrid()
     
     Trace_ = new TicTacToeTrace;
     
+    // Graphic elements creation.
+    x_sign_[0] = new GraphicElement("resources/marks/x_mark_1.png");
+    x_sign_[1] = new GraphicElement("resources/marks/x_mark_1.png");
+    x_sign_[2] = new GraphicElement("resources/marks/x_mark_2.png");
+    x_sign_[3] = new GraphicElement("resources/marks/x_mark_2.png");
+    
+    o_sign_[0] = new GraphicElement("resources/marks/o_mark_1.png");
+    o_sign_[1] = new GraphicElement("resources/marks/o_mark_1.png");
+    o_sign_[2] = new GraphicElement("resources/marks/o_mark_2.png");
+    o_sign_[3] = new GraphicElement("resources/marks/o_mark_2.png");
+    
     // Interation areas creation.
     InteractionBox_[0] = new SxMouseInteraction(406, 54, 136, 136);
     InteractionBox_[1] = new SxMouseInteraction(556, 55, 136, 136);
@@ -102,16 +113,27 @@ void TicTacToeGrid::Initialize()
     Grid_->Initializes();
     
     Trace_->Initialize();
+
+    // It initializes signs, but the first and second signs are first flipped. 
+    for (counter_ = 0; counter_ < 2; counter_++) {
+        x_sign_[counter_]->FlipHorizontal();
+        x_sign_[counter_]->Initializes();
+        
+        o_sign_[counter_]->FlipHorizontal();
+        o_sign_[counter_]->Initializes();
+    }
     
-    x_sign_[0] = LoadTexture("resources/marks/x_mark_1.png");
-    x_sign_[1] = LoadTexture("resources/marks/x_mark_1_mirrored.png");
-    x_sign_[2] = LoadTexture("resources/marks/x_mark_2.png");
-    x_sign_[3] = LoadTexture("resources/marks/x_mark_2_mirrored.png");
+    x_sign_[2]->Initializes();
+    x_sign_[3]->Initializes();
     
-    o_sign_[0] = LoadTexture("resources/marks/o_mark_1.png");
-    o_sign_[1] = LoadTexture("resources/marks/o_mark_1_mirrored.png");
-    o_sign_[2] = LoadTexture("resources/marks/o_mark_2.png");
-    o_sign_[3] = LoadTexture("resources/marks/o_mark_2_mirrored.png");
+    o_sign_[2]->Initializes();
+    o_sign_[3]->Initializes();
+    
+    // The result is:
+    // [0] -> flipped (first texture);
+    // [1] -> flipped (second texture);
+    // [2] -> normal (first texture);
+    // [3] -> normal (second texture).
 }
 
 void TicTacToeGrid::DeInitialize()
@@ -120,15 +142,10 @@ void TicTacToeGrid::DeInitialize()
     
     Trace_->DeInitialize();
     
-    UnloadTexture(x_sign_[0]);
-    UnloadTexture(x_sign_[1]);
-    UnloadTexture(x_sign_[2]);
-    UnloadTexture(x_sign_[3]);
-    
-    UnloadTexture(o_sign_[0]);
-    UnloadTexture(o_sign_[1]);
-    UnloadTexture(o_sign_[2]);
-    UnloadTexture(o_sign_[3]);
+    for (counter_ = 0; counter_ < 4; counter_++) {
+        x_sign_[counter_]->DeInitializes();
+        o_sign_[counter_]->DeInitializes();
+    }
 }
     
 void TicTacToeGrid::Draw()
@@ -136,7 +153,7 @@ void TicTacToeGrid::Draw()
     Grid_->Show();
     
     // Drawing of signs.
-    for(counter_ = 0; counter_ < 9; counter_++) {
+    for (counter_ = 0; counter_ < 9; counter_++) {
         // Checks if there is a symbol 'X' in the box.
         if (Game_->get_status(CellsPosition_[counter_].row,
                               CellsPosition_[counter_].column) == 3) {
@@ -147,7 +164,10 @@ void TicTacToeGrid::Draw()
             if (grid_mark_[counter_] == 4) {
                 grid_mark_[counter_] = GetRandomValue(0, 3);
             }
-            DrawTextureV(x_sign_[grid_mark_[counter_]],
+            
+            // TODO: this implementation should be changed, because it's not
+            // focused on OOP.
+            DrawTextureV(x_sign_[grid_mark_[counter_]]->get_texture(),
                          texture_angle_[counter_], WHITE);
             
         } else if (Game_->get_status(CellsPosition_[counter_].row,
@@ -156,7 +176,7 @@ void TicTacToeGrid::Draw()
             if (grid_mark_[counter_] == 4) {
                 grid_mark_[counter_] = GetRandomValue(0, 3);
             }
-            DrawTextureV(o_sign_[grid_mark_[counter_]],
+            DrawTextureV(o_sign_[grid_mark_[counter_]]->get_texture(),
                          texture_angle_[counter_], WHITE);
         }
     }
@@ -168,18 +188,19 @@ void TicTacToeGrid::Draw()
 void TicTacToeGrid::Update(Vector2 mouse_position_input)
 {
     // Checks if left mouse button has been pressed.
-    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) == true) {
+    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) == true) {
         // Checks if drawing signs is necessary.
         if (Game_->get_won() == 0) {
             // Repeat for each box.
-            for(counter_ = 0; counter_ < 9; counter_++) {
+            for (counter_ = 0; counter_ < 9; counter_++) {
                 // Checks if there is a collision between mouse and grid boxes.
                 if (CheckCollisionPointRec(mouse_position_input,
                                            InteractionBox_[counter_]->get_area()
                                            )) {
                     // Checks if the position is empty
                     if (Game_->get_status(CellsPosition_[counter_].row,
-                                          CellsPosition_[counter_].row) == 0) {
+                                          CellsPosition_[counter_].column)
+                                          == 0) {
                         Game_->DoTurn(CellsPosition_[counter_]);
                     }
                 }

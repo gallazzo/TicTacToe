@@ -94,11 +94,9 @@ class TicTacToeGrid {
     // Used for drawing signs.
     Vector2 texture_angle_[9];
     
-    // Symbol 'X' with its variants.
-    Texture2D x_sign_[4];
+    GraphicElement *x_sign_[4];
     
-    // Symbol 'O' with its variants.
-    Texture2D o_sign_[4];
+    GraphicElement *o_sign_[4];
     
     // Shows the number that identify symbol variants that there are
     // in grid boxes.

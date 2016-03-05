@@ -70,9 +70,17 @@ class GraphicElement {
     // Parameters: coordinates x and y of the top left image's angle.
     void set_position(int x_input, int y_input) { x_ = x_input; y_ = y_input; }
     
+    void set_position(Vector2 position_input) {
+        x_ = position_input.x;
+        y_ = position_input.y;
+    }
+    
     // Set graphic element's color.
     // Parameter: element's color.
     void set_color(Color color_input) { Color_ = color_input; }
+    
+    // It returns the texture.
+    Texture2D get_texture() { return Texture_; }
     
  private:
     // Attributes
