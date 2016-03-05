@@ -2,7 +2,7 @@
 
 TicTacToe is a simple tictactoe game created with raylib library. I've created this for school purposes, so maybe the software is not perfect.
 
-[<img src="resources/icon.png" width=300>](resources/icon.png)
+[<img src="resources/icon.png" width=200>](resources/icon.png)
 
 ## Description
 
@@ -19,32 +19,18 @@ I'm not english, so there are lots of errors! You can help me to fix these!
 TicTacToe only uses raylib library; this library supports multiple platform (Window, GNU/Linux, Mac and others), but I've created a Makefile that works only on GNU/Linux (because I'm learning to create it); thus TicTacToe works with all platforms, but for now it works only on GNU/Linux. If you want to help me, write me!
 
 ### Build raylib library
-Now I show you how to install raylib library. If you know how, skip this paragraph.
-The Raylib library uses other libraries, so first you have to install them. I use Ubuntu, so you can install the majority of them using this command (it works with all OS that use APT):
 
-    sudo apt install mesa-common-dev-dev libx11 libxrandr libXi-dev-dev xorg-dev libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
-    
-There is the last dependency (GLFW3); you need also cmake:
-    
-    git clone https://github.com/glfw/glfw.git glfw
-    cd glfw
-    cmake .
-    sudo make install
-    
-Now, you can install raylib library. You can build it with theese commands:
-
-    git clone https://github.com/raysan5/raylib.git raylib
-    cd raylib/src/
-    make
-    sudo cp libraylib.a /usr/local/lib/libraylib.a
-    sudo cp raylib.h /usr/local/include/raylib/raylib.h
-
-Now you can use raylib on your projects!
+You can build raylib by reading official Wiki; [here](https://github.com/raysan5/raylib/wiki/Compile-your-game-for-Linux) there is the guide for Ubuntu. You **MUST** move the library on standards directories (so at the point in the guide you have to follow it).
 
 ### Build TicTacToe
 
-You can simply compile the software with `make`. It produces an executable, you can move it everywhere **BUT** he goes along with the `resources` folder!
+You need to download TicTacToe form Github repository; after you can compile the project:
 
+    git clone https://github.com/LelixSuper/TicTacToe.git tictactoe
+    cd tictactoe/
+    make
+
+It produces an executable, you can move it everywhere **BUT** he goes along with the `resources` folder!
 You can also use `make clean` to clean the folder.
 
 ## Play
