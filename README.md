@@ -20,7 +20,7 @@ TicTacToe only uses raylib library; this library supports multiple platform (Win
 
 ### Build raylib library
 
-You can build raylib by reading official Wiki; [here](https://github.com/raysan5/raylib/wiki/Compile-your-game-for-Linux) there is the guide for Ubuntu. You **MUST** move the library on standards directories (so at the point in the guide you have to follow it).
+You can build raylib by reading official Wiki; [here](https://github.com/raysan5/raylib/wiki/Compile-your-game-for-Linux) there is the guide for Ubuntu. It's **strongly reccommended** move the library on standard directories (so at the point in the guide you have to follow it).
 
 ### Build TicTacToe
 
