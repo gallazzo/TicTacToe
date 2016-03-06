@@ -52,10 +52,6 @@ class GraphicElement {
     //     path_input = image's path.
     GraphicElement(string path_input);
     
-    // It flips horizontally the image.
-    // It must be called before "Initalizes()"!
-    void FlipHorizontal();
-    
     // It loads image and turns it into texture.
     // You must use the method after creating the Raylib window (InitWindow)!
     void Initializes();
@@ -81,6 +77,17 @@ class GraphicElement {
     
     // It returns the texture.
     Texture2D get_texture() { return Texture_; }
+    
+    // Image manipulation
+    // --------------------------------------------
+    
+    // It flips vertically the image.
+    // It must be called before "Initalizes()"!
+    void FlipVertical();
+    
+    // It flips horizontally the image.
+    // It must be called before "Initalizes()"!
+    void FlipHorizontal();
     
  private:
     // Attributes
