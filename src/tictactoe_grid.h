@@ -26,7 +26,7 @@
 #ifndef SRC_TICTACTOE_GRID_H
 #define SRC_TICTACTOE_GRID_H
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 #include "tictactoe_game.h"
 #include "tictactoe_trace.h"

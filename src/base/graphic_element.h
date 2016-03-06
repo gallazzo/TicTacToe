@@ -26,7 +26,7 @@
 
 #include <string>
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 using namespace std;
 

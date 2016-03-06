@@ -24,7 +24,7 @@
 #ifndef SRC_BASE_SX_MOUSE_INTERACTION_H
 #define SRC_BASE_SX_MOUSE_INTERACTION_H
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 // This is a general class thath you can use for other project that use Raylib.
 // This class manages an interaction of the mouse with the game. You can create

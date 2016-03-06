@@ -24,7 +24,7 @@
 #ifndef SRC_TICTACTOE_CORE_WINDOW_H
 #define SRC_TICTACTOE_CORE_WINDOW_H
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 #include "tictactoe_game.h"
 #include "tictactoe_main_window.h"

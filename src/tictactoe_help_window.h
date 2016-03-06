@@ -24,7 +24,7 @@
 #ifndef SRC_TICTACTOE_HELP_WINDOW_H
 #define SRC_TICTACTOE_HELP_WINDOW_H
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 #include "base/graphic_element.h"
 #include "base/button.h"

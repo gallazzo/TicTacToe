@@ -24,7 +24,7 @@
 #ifndef SRC_TICTACTOE_TRACE_H
 #define SRC_TICTACTOE_TRACE_H
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 #include "base/graphic_element.h"
 #include "tictactoe_game.h"

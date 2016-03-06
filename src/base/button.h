@@ -28,7 +28,7 @@
 
 #include <iostream>
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 #include "sx_mouse_interaction.h"
 #include "graphic_element.h"
