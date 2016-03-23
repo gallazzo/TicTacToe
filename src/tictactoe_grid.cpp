@@ -38,11 +38,13 @@ TicTacToeGrid::TicTacToeGrid()
     x_sign_[1] = new GraphicElement("resources/marks/x_mark_1.png");
     x_sign_[2] = new GraphicElement("resources/marks/x_mark_2.png");
     x_sign_[3] = new GraphicElement("resources/marks/x_mark_2.png");
+    x_sign_[4] = new GraphicElement("resources/marks/x_mark_1.png");
     
     o_sign_[0] = new GraphicElement("resources/marks/o_mark_1.png");
     o_sign_[1] = new GraphicElement("resources/marks/o_mark_1.png");
     o_sign_[2] = new GraphicElement("resources/marks/o_mark_2.png");
     o_sign_[3] = new GraphicElement("resources/marks/o_mark_2.png");
+    o_sign_[4] = new GraphicElement("resources/marks/o_mark_1.png");
     
     // Interation areas creation.
     InteractionBox_[0] = new SxMouseInteraction(406, 54, 136, 136);
@@ -129,11 +131,18 @@ void TicTacToeGrid::Initialize()
     o_sign_[2]->Initializes();
     o_sign_[3]->Initializes();
     
+    x_sign_[4]->FlipVertical();
+    x_sign_[4]->Initializes();
+        
+    o_sign_[4]->FlipVertical();
+    o_sign_[4]->Initializes();
+    
     // The result is:
     // [0] -> flipped (first texture);
     // [1] -> flipped (second texture);
     // [2] -> normal (first texture);
-    // [3] -> normal (second texture).
+    // [3] -> normal (second texture);
+    // [4] -> flipped vertically (first texture).
 }
 
 void TicTacToeGrid::DeInitialize()
@@ -142,7 +151,7 @@ void TicTacToeGrid::DeInitialize()
     
     Trace_->DeInitialize();
     
-    for (counter_ = 0; counter_ < 4; counter_++) {
+    for (counter_ = 0; counter_ < 5; counter_++) {
         x_sign_[counter_]->DeInitializes();
         o_sign_[counter_]->DeInitializes();
     }
