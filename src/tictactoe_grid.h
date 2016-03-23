@@ -34,6 +34,9 @@
 #include "base/sx_mouse_interaction.h"
 #include "base/graphic_element.h"
 
+// Define directive for filling grid_mark_[] with empty choiches.
+#define EMPTY 4
+
 // This class manages the grid of the game. In the software there is one
 // istance of this class. If you want to use it, you must call first 
 // "Initialize()" method and at the end "DeInitialize()" method.
@@ -100,6 +103,7 @@ class TicTacToeGrid {
     
     // Shows the number that identify symbol variants that there are
     // in grid boxes.
+    // Max value is 3, 4 means empty box (use EMPTY directive).
     unsigned short int grid_mark_[9];
     
     // Pointer that points a TicTacToeTrace istance, the class that manages

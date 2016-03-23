@@ -107,7 +107,7 @@ void TicTacToeGrid::SetGame(TicTacToeGame *Game_input)
     // If this method is called, it means that a new game has been
     // started, so the textures already drawn will be cleaned. 
     for(counter_ = 0; counter_ < 9; counter_++)
-        grid_mark_[counter_] = 4; // Max value is 3, so 4 means empty box.
+        grid_mark_[counter_] = EMPTY;
 }
 
 void TicTacToeGrid::Initialize()
@@ -166,27 +166,32 @@ void TicTacToeGrid::Draw()
         // Checks if there is a symbol 'X' in the box.
         if (Game_->get_status(CellsPosition_[counter_].row,
                               CellsPosition_[counter_].column) == 3) {
-    
+            
             // If a graphic sign hasn't already been assigned,
             // a value will be assigned for the first time, randomly. 
             // Next time the sign assigned before will be drawn.
-            if (grid_mark_[counter_] == 4) {
-                grid_mark_[counter_] = GetRandomValue(0, 3);
+            if (grid_mark_[counter_] == EMPTY) {
+                grid_mark_[counter_] = GetRandomValue(0, 4); // 0 and 4 included
+                x_sign_[grid_mark_[counter_]]->
+                                         set_position(texture_angle_[counter_]);
             }
             
-            // TODO: this implementation should be changed, because it's not
-            // focused on OOP.
-            DrawTextureV(x_sign_[grid_mark_[counter_]]->get_texture(),
-                         texture_angle_[counter_], WHITE);
+            x_sign_[grid_mark_[counter_]]->Show();
+            //DrawTextureV(x_sign_[grid_mark_[counter_]]->get_texture(),
+            //             texture_angle_[counter_], WHITE);
             
         } else if (Game_->get_status(CellsPosition_[counter_].row,
                                      CellsPosition_[counter_].column) == 10) {
             
-            if (grid_mark_[counter_] == 4) {
-                grid_mark_[counter_] = GetRandomValue(0, 3);
+            if (grid_mark_[counter_] == EMPTY) {
+                grid_mark_[counter_] = GetRandomValue(0, 4); // 0 and 4 included
+                o_sign_[grid_mark_[counter_]]->
+                                         set_position(texture_angle_[counter_]);
             }
-            DrawTextureV(o_sign_[grid_mark_[counter_]]->get_texture(),
-                         texture_angle_[counter_], WHITE);
+            
+            o_sign_[grid_mark_[counter_]]->Show();
+            //DrawTextureV(o_sign_[grid_mark_[counter_]]->get_texture(),
+            //             texture_angle_[counter_], WHITE);
         }
     }
     
