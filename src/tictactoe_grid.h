@@ -30,12 +30,10 @@
 
 #include "tictactoe_game.h"
 #include "tictactoe_trace.h"
+#include "tictactoe_signs.h"
 
 #include "base/sx_mouse_interaction.h"
 #include "base/graphic_element.h"
-
-// Define directive for filling grid_mark_[] with empty choiches.
-#define EMPTY 4
 
 // This class manages the grid of the game. In the software there is one
 // istance of this class. If you want to use it, you must call first 
@@ -97,21 +95,16 @@ class TicTacToeGrid {
     // Used for drawing signs.
     Vector2 texture_angle_[9];
     
-    GraphicElement *x_sign_[5];
-    
-    GraphicElement *o_sign_[5];
-    
-    // Shows the number that identify symbol variants that there are
-    // in grid boxes.
-    // Max value is 3, 4 means empty box (use EMPTY directive).
-    unsigned short int grid_mark_[9];
-    
     // Pointer that points a TicTacToeTrace istance, the class that manages
     // the graphic traces of the victory.
     TicTacToeTrace *Trace_;
     
-    // Used for cicles.
-    unsigned short int counter_;
+    // Pointer that points a TicTacToeSigns istance, the class that manages
+    // the signs and his variations.
+    TicTacToeSigns *Signs_;
+    
+    // It is used in different cycles.
+    short int counter_;
 };
 
 #endif // SRC_TICTACTOE_GRID_H

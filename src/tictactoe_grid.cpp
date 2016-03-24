@@ -33,18 +33,7 @@ TicTacToeGrid::TicTacToeGrid()
     
     Trace_ = new TicTacToeTrace;
     
-    // Graphic elements creation.
-    x_sign_[0] = new GraphicElement("resources/marks/x_mark_1.png");
-    x_sign_[1] = new GraphicElement("resources/marks/x_mark_1.png");
-    x_sign_[2] = new GraphicElement("resources/marks/x_mark_2.png");
-    x_sign_[3] = new GraphicElement("resources/marks/x_mark_2.png");
-    x_sign_[4] = new GraphicElement("resources/marks/x_mark_1.png");
-    
-    o_sign_[0] = new GraphicElement("resources/marks/o_mark_1.png");
-    o_sign_[1] = new GraphicElement("resources/marks/o_mark_1.png");
-    o_sign_[2] = new GraphicElement("resources/marks/o_mark_2.png");
-    o_sign_[3] = new GraphicElement("resources/marks/o_mark_2.png");
-    o_sign_[4] = new GraphicElement("resources/marks/o_mark_1.png");
+    Signs_ = new TicTacToeSigns();
     
     // Interation areas creation.
     InteractionBox_[0] = new SxMouseInteraction(406, 54, 136, 136);
@@ -104,10 +93,7 @@ void TicTacToeGrid::SetGame(TicTacToeGame *Game_input)
     
     Trace_->SetCore(Game_input);
     
-    // If this method is called, it means that a new game has been
-    // started, so the textures already drawn will be cleaned. 
-    for(counter_ = 0; counter_ < 9; counter_++)
-        grid_mark_[counter_] = EMPTY;
+    Signs_->NewDraw();
 }
 
 void TicTacToeGrid::Initialize()
@@ -116,33 +102,7 @@ void TicTacToeGrid::Initialize()
     
     Trace_->Initialize();
 
-    // It initializes signs, but the first and second signs are first flipped. 
-    for (counter_ = 0; counter_ < 2; counter_++) {
-        x_sign_[counter_]->FlipHorizontal();
-        x_sign_[counter_]->Initializes();
-        
-        o_sign_[counter_]->FlipHorizontal();
-        o_sign_[counter_]->Initializes();
-    }
-    
-    x_sign_[2]->Initializes();
-    x_sign_[3]->Initializes();
-    
-    o_sign_[2]->Initializes();
-    o_sign_[3]->Initializes();
-    
-    x_sign_[4]->FlipVertical();
-    x_sign_[4]->Initializes();
-        
-    o_sign_[4]->FlipVertical();
-    o_sign_[4]->Initializes();
-    
-    // The result is:
-    // [0] -> flipped (first texture);
-    // [1] -> flipped (second texture);
-    // [2] -> normal (first texture);
-    // [3] -> normal (second texture);
-    // [4] -> flipped vertically (first texture).
+    Signs_->Initialize();
 }
 
 void TicTacToeGrid::DeInitialize()
@@ -151,47 +111,24 @@ void TicTacToeGrid::DeInitialize()
     
     Trace_->DeInitialize();
     
-    for (counter_ = 0; counter_ < 5; counter_++) {
-        x_sign_[counter_]->DeInitializes();
-        o_sign_[counter_]->DeInitializes();
-    }
+    Signs_->DeInitialize();
 }
     
 void TicTacToeGrid::Draw()
 {
     Grid_->Show();
     
+    Signs_->NewDraw(); // It prepares the drawn of the signs.
     // Drawing of signs.
     for (counter_ = 0; counter_ < 9; counter_++) {
         // Checks if there is a symbol 'X' in the box.
         if (Game_->get_status(CellsPosition_[counter_].row,
                               CellsPosition_[counter_].column) == 3) {
-            
-            // If a graphic sign hasn't already been assigned,
-            // a value will be assigned for the first time, randomly. 
-            // Next time the sign assigned before will be drawn.
-            if (grid_mark_[counter_] == EMPTY) {
-                grid_mark_[counter_] = GetRandomValue(0, 4); // 0 and 4 included
-                x_sign_[grid_mark_[counter_]]->
-                                         set_position(texture_angle_[counter_]);
-            }
-            
-            x_sign_[grid_mark_[counter_]]->Show();
-            //DrawTextureV(x_sign_[grid_mark_[counter_]]->get_texture(),
-            //             texture_angle_[counter_], WHITE);
+            Signs_->Show(texture_angle_[counter_], 'X');
             
         } else if (Game_->get_status(CellsPosition_[counter_].row,
                                      CellsPosition_[counter_].column) == 10) {
-            
-            if (grid_mark_[counter_] == EMPTY) {
-                grid_mark_[counter_] = GetRandomValue(0, 4); // 0 and 4 included
-                o_sign_[grid_mark_[counter_]]->
-                                         set_position(texture_angle_[counter_]);
-            }
-            
-            o_sign_[grid_mark_[counter_]]->Show();
-            //DrawTextureV(o_sign_[grid_mark_[counter_]]->get_texture(),
-            //             texture_angle_[counter_], WHITE);
+            Signs_->Show(texture_angle_[counter_], 'O');
         }
     }
     
