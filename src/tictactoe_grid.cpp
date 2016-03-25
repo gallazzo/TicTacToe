@@ -100,7 +100,7 @@ void TicTacToeGrid::Initialize()
 {
     Grid_->Initializes();
     
-    Signs_->Initialize();
+    Signs_->Initializes();
     
     Trace_->Initialize();
 }
@@ -109,7 +109,7 @@ void TicTacToeGrid::DeInitialize()
 {
     Grid_->DeInitializes();
     
-    Signs_->DeInitialize();
+    Signs_->DeInitializes();
     
     Trace_->DeInitialize();
 }
@@ -123,10 +123,10 @@ void TicTacToeGrid::Draw()
     for (counter_ = 0; counter_ < 9; counter_++) {
         // Checks if there is a symbol 'X' in the box.
         if (Game_->get_status(CellsPosition_[counter_]) == 3) {
-            Signs_->Show(texture_angle_[counter_], 'X');
+            Signs_->Draw(texture_angle_[counter_], 'X');
             
         } else if (Game_->get_status(CellsPosition_[counter_]) == 10) {
-            Signs_->Show(texture_angle_[counter_], 'O');
+            Signs_->Draw(texture_angle_[counter_], 'O');
         }
     }
     

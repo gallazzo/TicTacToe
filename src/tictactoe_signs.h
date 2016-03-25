@@ -44,19 +44,19 @@ class TicTacToeSigns {
     TicTacToeSigns();
     
     // It initializes "GraphicElement" objects.
-    void Initialize();
+    void Initializes();
     
     // It draws the correct sign.
     // Parameters:
     //     pos_input -> the position where you want to draw the sign;
     //     player -> 'X' or 'O' player.
-    void Show(Vector2 pos_input, char player);
+    void Draw(Vector2 pos_input, char player);
     
     // It resets the counters for another draw.
     void NewDraw() { counter_o_ = 0, counter_x_ = 0; }
     
     // It clears texture memory.
-    void DeInitialize();
+    void DeInitializes();
     
  private:
     // Attributes

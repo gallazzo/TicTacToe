@@ -41,7 +41,7 @@ TicTacToeSigns::TicTacToeSigns()
     }
 }
 
-void TicTacToeSigns::Initialize()
+void TicTacToeSigns::Initializes()
 {
     // TODO: Improve this method.
     x_sign_[0]->Initializes();
@@ -78,8 +78,10 @@ void TicTacToeSigns::Initialize()
     // [4] -> flipped (second texture).
 }
 
-void TicTacToeSigns::Show(Vector2 pos_input, char player)
+void TicTacToeSigns::Draw(Vector2 pos_input, char player)
 {
+    // TODO: the signs are changed continously in the grid. This should be a bug
+    // or a feature?
     if (player == 'X') {
         x_sign_[counter_x_]->set_position(pos_input);
         x_sign_[counter_x_]->Show();
@@ -93,7 +95,7 @@ void TicTacToeSigns::Show(Vector2 pos_input, char player)
     }
 }
 
-void TicTacToeSigns::DeInitialize()
+void TicTacToeSigns::DeInitializes()
 {
     for (counter_o_ = 0; counter_o_ < 5; counter_o_++) {
         x_sign_[counter_o_]->DeInitializes();
