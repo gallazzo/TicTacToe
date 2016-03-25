@@ -30,6 +30,7 @@
 
 #include "tictactoe_game.h"
 #include "tictactoe_trace.h"
+#include "tictactoe_signs.h"
 
 #include "base/sx_mouse_interaction.h"
 #include "base/graphic_element.h"
@@ -94,22 +95,16 @@ class TicTacToeGrid {
     // Used for drawing signs.
     Vector2 texture_angle_[9];
     
-    // Symbol 'X' with its variants.
-    Texture2D x_sign_[4];
-    
-    // Symbol 'O' with its variants.
-    Texture2D o_sign_[4];
-    
-    // Shows the number that identify symbol variants that there are
-    // in grid boxes.
-    unsigned short int grid_mark_[9];
-    
     // Pointer that points a TicTacToeTrace istance, the class that manages
     // the graphic traces of the victory.
     TicTacToeTrace *Trace_;
     
-    // Used for cicles.
-    unsigned short int counter_;
+    // Pointer that points a TicTacToeSigns istance, the class that manages
+    // the signs and his variations.
+    TicTacToeSigns *Signs_;
+    
+    // It is used in different cycles.
+    short int counter_;
 };
 
 #endif // SRC_TICTACTOE_GRID_H

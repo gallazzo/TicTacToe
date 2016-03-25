@@ -29,18 +29,27 @@ GraphicElement::GraphicElement(int x_input, int y_input,
     y_ = y_input;
     path_ = path_input;
     Color_ = Color_input;
+    
+    Image_ = NULL;
 }
 
 GraphicElement::GraphicElement(string path_input)
 {
     path_ = path_input;
+    Color_ = WHITE; // Default color
+    
+    Image_ = NULL;
 }
 
 void GraphicElement::Initializes()
 {
-    // "LoadTexture()" accepts only a C string, so it's necessary convert
-    // "path_".
-    Texture_ = LoadTexture(path_.c_str());
+    // Raylib's function with paths accetps only C string, so it's necessary
+    // convert "path_".
+    if (Image_ != NULL) {
+        Texture_ = LoadTextureFromImage(*Image_);
+    } else {
+        Texture_ = LoadTexture(path_.c_str());
+    }
 }
 
 void GraphicElement::DeInitializes()
@@ -51,4 +60,18 @@ void GraphicElement::DeInitializes()
 void GraphicElement::Show()
 {
     DrawTexture(Texture_, x_, y_, Color_);
+}
+
+void GraphicElement::FlipVertical()
+{
+    Image_ = new Image;
+    *Image_ = LoadImage(path_.c_str());
+    ImageFlipVertical(Image_);
+}
+
+void GraphicElement::FlipHorizontal()
+{
+    Image_ = new Image;
+    *Image_ = LoadImage(path_.c_str());
+    ImageFlipHorizontal(Image_);
 }

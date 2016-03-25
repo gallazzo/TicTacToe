@@ -33,6 +33,8 @@ TicTacToeGrid::TicTacToeGrid()
     
     Trace_ = new TicTacToeTrace;
     
+    Signs_ = new TicTacToeSigns;
+    
     // Interation areas creation.
     InteractionBox_[0] = new SxMouseInteraction(406, 54, 136, 136);
     InteractionBox_[1] = new SxMouseInteraction(556, 55, 136, 136);
@@ -89,73 +91,41 @@ void TicTacToeGrid::SetGame(TicTacToeGame *Game_input)
 {
     Game_ = Game_input;
     
-    Trace_->SetCore(Game_input);
+    Signs_->NewDraw();
     
-    // If this method is called, it means that a new game has been
-    // started, so the textures already drawn will be cleaned. 
-    for(counter_ = 0; counter_ < 9; counter_++)
-        grid_mark_[counter_] = 4; // Max value is 3, so 4 means empty box.
+    Trace_->SetCore(Game_input);
 }
 
 void TicTacToeGrid::Initialize()
 {
     Grid_->Initializes();
     
+    Signs_->Initializes();
+    
     Trace_->Initialize();
-    
-    x_sign_[0] = LoadTexture("resources/marks/x_mark_1.png");
-    x_sign_[1] = LoadTexture("resources/marks/x_mark_1_mirrored.png");
-    x_sign_[2] = LoadTexture("resources/marks/x_mark_2.png");
-    x_sign_[3] = LoadTexture("resources/marks/x_mark_2_mirrored.png");
-    
-    o_sign_[0] = LoadTexture("resources/marks/o_mark_1.png");
-    o_sign_[1] = LoadTexture("resources/marks/o_mark_1_mirrored.png");
-    o_sign_[2] = LoadTexture("resources/marks/o_mark_2.png");
-    o_sign_[3] = LoadTexture("resources/marks/o_mark_2_mirrored.png");
 }
 
 void TicTacToeGrid::DeInitialize()
 {
     Grid_->DeInitializes();
     
+    Signs_->DeInitializes();
+    
     Trace_->DeInitialize();
-    
-    UnloadTexture(x_sign_[0]);
-    UnloadTexture(x_sign_[1]);
-    UnloadTexture(x_sign_[2]);
-    UnloadTexture(x_sign_[3]);
-    
-    UnloadTexture(o_sign_[0]);
-    UnloadTexture(o_sign_[1]);
-    UnloadTexture(o_sign_[2]);
-    UnloadTexture(o_sign_[3]);
 }
     
 void TicTacToeGrid::Draw()
 {
     Grid_->Show();
     
+    Signs_->NewDraw(); // It prepares the drawn of the signs.
     // Drawing of signs.
-    for(counter_ = 0; counter_ < 9; counter_++) {
+    for (counter_ = 0; counter_ < 9; counter_++) {
         // Checks if there is a symbol 'X' in the box.
         if (Game_->get_status(CellsPosition_[counter_]) == 3) {
-    
-            // If a graphic sign hasn't already been assigned,
-            // a value will be assigned for the first time, randomly. 
-            // Next time the sign assigned before will be drawn.
-            if (grid_mark_[counter_] == 4) {
-                grid_mark_[counter_] = GetRandomValue(0, 3);
-            }
-            DrawTextureV(x_sign_[grid_mark_[counter_]],
-                         texture_angle_[counter_], WHITE);
-            
+            Signs_->Draw(texture_angle_[counter_], 'X'); 
         } else if (Game_->get_status(CellsPosition_[counter_]) == 10) {
-            
-            if (grid_mark_[counter_] == 4) {
-                grid_mark_[counter_] = GetRandomValue(0, 3);
-            }
-            DrawTextureV(o_sign_[grid_mark_[counter_]],
-                         texture_angle_[counter_], WHITE);
+            Signs_->Draw(texture_angle_[counter_], 'O');
         }
     }
     
@@ -166,11 +136,11 @@ void TicTacToeGrid::Draw()
 void TicTacToeGrid::Update(Vector2 mouse_position_input)
 {
     // Checks if left mouse button has been pressed.
-    if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) == true) {
+    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) == true) {
         // Checks if drawing signs is necessary.
         if (Game_->get_won() == 0) {
             // Repeat for each box.
-            for(counter_ = 0; counter_ < 9; counter_++) {
+            for (counter_ = 0; counter_ < 9; counter_++) {
                 // Checks if there is a collision between mouse and grid boxes.
                 if (CheckCollisionPointRec(mouse_position_input,
                                            InteractionBox_[counter_]->get_area()
