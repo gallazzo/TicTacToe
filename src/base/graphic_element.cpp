@@ -36,6 +36,7 @@ GraphicElement::GraphicElement(int x_input, int y_input,
 GraphicElement::GraphicElement(string path_input)
 {
     path_ = path_input;
+    Color_ = WHITE; // Default color
     
     Image_ = NULL;
 }
