@@ -50,7 +50,6 @@ You can start the software in a CLI with the `--help` or `--version` parameter, 
 ## To do list
 
 I'm really busy with the school, but if I can, i would like to add these things:
-* Update the project to raylib 1.4; [must, technological]
 * Improve makefile to support more platforms; [must, technological]
 * Add a very simple AI (so also add a settings window); [should, functional]
 * Add the support of arrow keys (thus also enter button); [should, functional]
