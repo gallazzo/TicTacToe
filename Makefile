@@ -51,12 +51,11 @@ tictactoe_trace.o : tictactoe_trace.cpp tictactoe_trace.h graphic_element.h \
 	@$(CXX) -c $< -o $@ $(CXXFLAGS)
 
 tictactoe_grid.o : tictactoe_grid.cpp tictactoe_grid.h tictactoe_game.h \
-		           tictactoe_trace.h sx_mouse_interaction.h graphic_element.h \
-                   tictactoe_signs.h
+                   tictactoe_trace.h tictactoe_signs.h sx_mouse_interaction.h \
+                   graphic_element.h
 	@$(CXX) -c $< -o $@ $(CXXFLAGS)
 
-tictactoe_signs.o : tictactoe_signs.cpp tictactoe_signs.h tictactoe_game.h \
-                    graphic_element.h
+tictactoe_signs.o : tictactoe_signs.cpp tictactoe_signs.h graphic_element.h
 	@$(CXX) -c $< -o $@ $(CXXFLAGS)
 
 tictactoe_game.o : tictactoe_game.cpp tictactoe_game.h

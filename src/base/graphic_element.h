@@ -64,7 +64,7 @@ class GraphicElement {
     
     // Set graphic element's position.
     // Parameters: coordinates x and y of the top left image's angle.
-    void set_position(int x_input, int y_input) { x_ = x_input; y_ = y_input; }
+    void set_position(float x_input, float y_input) { x_ = x_input; y_ = y_input; }
     
     void set_position(Vector2 position_input) {
         x_ = position_input.x;
@@ -97,10 +97,10 @@ class GraphicElement {
     string path_;
     
     // It indicates the abscissa's position of the top left element's.
-    int x_;
+    float x_;
     
     // It indicates the ordinate position of the top left element's.
-    int y_;
+    float y_;
     
     // Element texture.
     Texture2D Texture_;

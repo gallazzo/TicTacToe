@@ -33,7 +33,7 @@ TicTacToeGrid::TicTacToeGrid()
     
     Trace_ = new TicTacToeTrace;
     
-    Signs_ = new TicTacToeSigns();
+    Signs_ = new TicTacToeSigns;
     
     // Interation areas creation.
     InteractionBox_[0] = new SxMouseInteraction(406, 54, 136, 136);
@@ -91,27 +91,27 @@ void TicTacToeGrid::SetGame(TicTacToeGame *Game_input)
 {
     Game_ = Game_input;
     
-    Trace_->SetCore(Game_input);
-    
     Signs_->NewDraw();
+    
+    Trace_->SetCore(Game_input);
 }
 
 void TicTacToeGrid::Initialize()
 {
     Grid_->Initializes();
     
-    Trace_->Initialize();
-
     Signs_->Initialize();
+    
+    Trace_->Initialize();
 }
 
 void TicTacToeGrid::DeInitialize()
 {
     Grid_->DeInitializes();
     
-    Trace_->DeInitialize();
-    
     Signs_->DeInitialize();
+    
+    Trace_->DeInitialize();
 }
     
 void TicTacToeGrid::Draw()

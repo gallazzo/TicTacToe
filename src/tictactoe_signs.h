@@ -28,8 +28,6 @@
 
 #include <raylib/raylib.h>
 
-#include "tictactoe_game.h"
-
 #include "base/graphic_element.h"
 
 #define MAXSIGNS 5
