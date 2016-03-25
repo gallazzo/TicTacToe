@@ -122,12 +122,10 @@ void TicTacToeGrid::Draw()
     // Drawing of signs.
     for (counter_ = 0; counter_ < 9; counter_++) {
         // Checks if there is a symbol 'X' in the box.
-        if (Game_->get_status(CellsPosition_[counter_].row,
-                              CellsPosition_[counter_].column) == 3) {
+        if (Game_->get_status(CellsPosition_[counter_]) == 3) {
             Signs_->Show(texture_angle_[counter_], 'X');
             
-        } else if (Game_->get_status(CellsPosition_[counter_].row,
-                                     CellsPosition_[counter_].column) == 10) {
+        } else if (Game_->get_status(CellsPosition_[counter_]) == 10) {
             Signs_->Show(texture_angle_[counter_], 'O');
         }
     }

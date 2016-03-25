@@ -72,6 +72,10 @@ public:
         return grid_[input_row][input_column];
     }
     
+    unsigned short int get_status(Coordinate box_input) {
+        return grid_[box_input.row][box_input.column];
+    }
+    
     unsigned short int get_turn() { return turn_; }
     
     unsigned short int get_won() { return win_; }
