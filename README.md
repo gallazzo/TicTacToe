@@ -12,7 +12,7 @@ I'm not english, so there are lots of errors! You can help me to fix these!
 
 ## Dependence
 
-* raylib (1.3 version, 1.4 it's not tested).
+* raylib (1.4 version).
 
 ## Build
 
