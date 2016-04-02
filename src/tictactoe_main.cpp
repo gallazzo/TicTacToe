@@ -24,9 +24,11 @@
 #include <iostream>
 #include <string>
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 #include "tictactoe_core.h"
+
+using namespace std;
 
 TicTacToeCore TicTacToe;
 

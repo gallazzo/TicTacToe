@@ -28,8 +28,6 @@
 
 #include <raylib.h>
 
-using namespace std;
-
 // This is a general class thath you can use for other project that use Raylib.
 // This class manages an graphic element of the screen. It don't provide any
 // interaction with user, only the drawing.
@@ -44,13 +42,13 @@ class GraphicElement {
     //     y_input = position y of the top left image's angle;
     //     path_input = image's path.
     //     Color_input = image's color (set WHITE for default).
-    GraphicElement(int x_input, int y_input, string path_input,
+    GraphicElement(int x_input, int y_input, std::string path_input,
                    Color Color_input);
     
     // Alternative constructor. It is used when the graphic element changes
     // coordinates and color. Parameter:
     //     path_input = image's path.
-    GraphicElement(string path_input);
+    GraphicElement(std::string path_input);
     
     // It loads image and turns it into texture.
     // You must use the method after creating the Raylib window (InitWindow)!
@@ -94,7 +92,7 @@ class GraphicElement {
     // -------------------------------------------------------------------------
     
     // It indicates the image's path.
-    string path_;
+    std::string path_;
     
     // It indicates the abscissa's position of the top left element's.
     float x_;

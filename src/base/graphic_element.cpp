@@ -24,7 +24,7 @@
 #include "graphic_element.h"
 
 GraphicElement::GraphicElement(int x_input, int y_input,
-                               string path_input, Color Color_input) {
+                               std::string path_input, Color Color_input) {
     x_ = x_input;
     y_ = y_input;
     path_ = path_input;
@@ -33,7 +33,7 @@ GraphicElement::GraphicElement(int x_input, int y_input,
     Image_ = NULL;
 }
 
-GraphicElement::GraphicElement(string path_input)
+GraphicElement::GraphicElement(std::string path_input)
 {
     path_ = path_input;
     Color_ = WHITE; // Default color

@@ -26,8 +26,6 @@
 #ifndef SRC_BASE_BUTTON_H
 #define SRC_BASE_BUTTON_H
 
-#include <iostream>
-
 #include <raylib.h>
 
 #include "sx_mouse_interaction.h"

@@ -16,7 +16,7 @@ VPATH = src src/base
 
 # If you have raylib into standard directory or user directory. It allow
 # the inclusion of raylib with simply "#include <raylib.h>"
-CPPFLAGS = -I/usr/local/include/raylib/ -I.
+INCLUDEFLAG = -I/usr/local/include/raylib/ -I.
 
 LIBDIR = -L.
 
@@ -34,19 +34,18 @@ CXXFLAGS = -g -O0 -std=c++11 -Wall
 
 # Executable builds
 all : TicTacToe $(OBJECTS)
-	@$(CXX) -o TicTacToe $(OBJECTS) $(CXXFLAGS) $(CPPFLAGS) $(LIBDIR) $(LDFLAGS)
+	@$(CXX) -o TicTacToe $(OBJECTS) $(CXXFLAGS) $(INCLUDEFLAG) $(LIBDIR) $(LDFLAGS)
 	@echo "TicTacToe builded!"
 
 TicTacToe :
 
 # Modules build
 tictactoe_main.o : tictactoe_main.cpp tictactoe_core.h
-	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(CPPFLAGS)
+	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(INCLUDEFLAG)
 
 tictactoe_core.o : tictactoe_core.cpp tictactoe_core.h tictactoe_game.h \
-
-				   tictactoe_main_window.h tictactoe_help_window.h
-	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(CPPFLAGS)
+                   tictactoe_main_window.h tictactoe_help_window.h
+	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(INCLUDEFLAG)
 
 tictactoe_main_window : tictactoe_main_window.cpp tictactoe_main_window.h \
                         tictactoe_game.h tictactoe_grid.h button.h \
@@ -55,28 +54,28 @@ tictactoe_main_window : tictactoe_main_window.cpp tictactoe_main_window.h \
 
 tictactoe_help_window.o : tictactoe_help_window.cpp tictactoe_help_window.h \
                           graphic_element.h button.h
-	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(CPPFLAGS)
+	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(INCLUDEFLAG)
 
 tictactoe_trace.o : tictactoe_trace.cpp tictactoe_trace.h graphic_element.h \
                     tictactoe_game.h
-	@$(CXX) -c $< -o $@ $(CXXFLAGS)
+	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(INCLUDEFLAG)
 
 tictactoe_grid.o : tictactoe_grid.cpp tictactoe_grid.h tictactoe_game.h \
                    tictactoe_trace.h tictactoe_signs.h sx_mouse_interaction.h \
                    graphic_element.h
-	@$(CXX) -c $< -o $@ $(CXXFLAGS)
+	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(INCLUDEFLAG)
 
 tictactoe_signs.o : tictactoe_signs.cpp tictactoe_signs.h graphic_element.h
-	@$(CXX) -c $< -o $@ $(CXXFLAGS)
+	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(INCLUDEFLAG)
 
 tictactoe_game.o : tictactoe_game.cpp tictactoe_game.h
 	@$(CXX) -c $< -o $@ $(CXXFLAGS)
 
 sx_mouse_interaction.o : sx_mouse_interaction.cpp sx_mouse_interaction.h
-	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(CPPFLAGS)
+	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(CPPFLAGS) $(INCLUDEFLAG)
 
 graphic_element.o : graphic_element.cpp graphic_element.h
-	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(CPPFLAGS)
+	@$(CXX) -c $< -o $@ $(CXXFLAGS) $(CPPFLAGS) $(INCLUDEFLAG)
 
 clean :
 	@rm --force TicTacToe *.o

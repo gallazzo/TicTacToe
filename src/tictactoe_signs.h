@@ -26,7 +26,7 @@
 #ifndef SRC_TICTACTOE_SIGNS_H
 #define SRC_TICTACTOE_SIGNS_H
 
-#include <raylib/raylib.h>
+#include <raylib.h>
 
 #include "base/graphic_element.h"
 
