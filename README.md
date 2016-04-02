@@ -45,7 +45,7 @@ You can start the software in a CLI with the `--help` or `--version` parameter, 
 
 ## Known bugs
 
-*No bugs? Really?*
+* Signs change continuously when you are placing them (#2) 
 
 ## To do list
 
@@ -53,7 +53,9 @@ I'm really busy with the school, but if I can, i would like to add these things:
 * Improve makefile to support more platforms; [must, technological]
 * Add a very simple AI (so also add a settings window); [should, functional]
 * Add the support of arrow keys (thus also enter button); [should, functional]
-* Add a very basis animation for graphic elements. [should, not functional]
+* Add a very basis animation for graphic elements; [should, not functional]
+* Review the game loop; [should, technological]
+* Review the entire source code. [should, technological]
 
 ## Contact
 
